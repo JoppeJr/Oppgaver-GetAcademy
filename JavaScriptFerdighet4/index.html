@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 100px;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            background-color: beige;
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body id="page">
+    <button onclick="tell()">Tell!</button>
+    <div id="info">Trykk på knappen</div>
+
+    <div class="container">
+        <div class="box"><button onclick="one()">1</button></div>
+        <div class="box"><button onclick="two()">2</button></div>
+        <div class="box"><button onclick="three()">3</button></div>
+        <div class="box"><button onclick="four()">4</button></div>
+        <div class="box"><button onclick="five()">5</button></div>
+        <div class="box"><button onclick="six()">6</button></div>
+        <div class="box"><button onclick="seven()">7</button></div>
+        <div class="box"><button onclick="eight()">8</button></div>
+        <div class="box"><button onclick="nine()">9</button></div>
+    </div>
+    <div id="info2"> Tast din Pin</div>
+    <button style="background-color: red;" onclick="reset()">RESET</button>
+
+
+
+    <script>
+        var textA = '';
+        console.log(textA);
+
+        function one() {
+            textA = 'a';
+            console.log(textA)
+        }
+
+        function two() {
+            textA += 'b';
+            console.log(textA)
+        }
+
+        function three() {
+            textA += 'c';
+            if (textA === 'abc') {
+                document.getElementById('info2').innerHTML = 'Du har Tastet riktig Pin!'
+            }
+
+            console.log(textA)
+        }
+
+        function four() {
+            textA += 'd';
+            console.log(textA)
+        }
+
+        function five() {
+            textA += 'e';
+            console.log(textA)
+        }
+
+        function six() {
+            textA += 'f';
+            console.log(textA)
+        }
+
+        function seven() {
+            textA += 'g';
+            console.log(textA)
+        }
+
+        function eight() {
+            textA += 'h';
+            console.log(textA)
+        }
+
+        function nine() {
+            textA += 'i';
+            console.log(textA)
+        }
+
+        function reset() {
+            location.reload();
+        }
+
+
+
+
+
+
+
+
+
+        var tallA = 0;
+        var tekstA = 'TekstA ';
+        console.log(tallA, tekstA)
+
+        function tell() {
+            var tallB = 0;
+            var tekstB = 'TekstB ';
+
+
+            tallA++;
+            tallB++;
+            tekstA += '*';
+            tekstB += '*';
+            document.getElementById('info').innerHTML =
+                'TallA' +
+                tallA +
+                '<br/>tallB' +
+                tallB +
+                '<br/>TekstA' +
+                tekstA +
+                '<br/>tekstB' +
+                tekstB;
+        }
+    </script>
+
+
+</body>
+
+</html>

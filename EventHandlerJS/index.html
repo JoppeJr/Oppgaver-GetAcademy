@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a {
+        clear: left;
+    }
+</style>
+
+<body onload="loading()">
+
+    <!--
+        Onclick
+        OnMouseOver
+        OnMouseOut
+        oninput
+        onchange
+        onload
+    -->
+
+    <button onclick="clickme()">Klikk på meg</button>
+    <h1 onmouseover="over()" ommouseout="out()">Dra musepekeren over her</h1>
+
+    <input type="text" oninput="inputText()">
+    <input type="text" onchange="changeText()">
+    <a href="EventHandler2JS.html">Event2</a>
+
+    <script>
+        function clickme() {
+            console.log('Du trykket på knappen')
+        }
+
+        function over() {
+            console.log('Du dro musepekeren over teksten')
+        }
+
+        function out() {
+            console.log('Du dro vekk musepekeren')
+        }
+
+        function inputText() {
+            console.log('Du skriver i boksen')
+        }
+
+        function changeText() {
+            console.log('Du har skrevet i boksen ferdig')
+        }
+
+        function loading() {
+            alert('Du har Lastet inn siden')
+        }
+    </script>
+
+</body>
+
+</html>

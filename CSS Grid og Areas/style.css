@@ -1,0 +1,32 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+div.page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 20px 10fr 20px;
+    grid-template-areas: 'header header' 'side''main' 'footer footer';
+}
+
+div.header {
+    background-color: aqua;
+    grid-area: header;
+}
+
+div.footer {
+    background-color: darkgray;
+    grid-area: footer;
+}
+
+div.side {
+    background-color: yellow;
+    grid-area: side;
+}
+
+div.main {
+    background-color: greenyellow;
+    grid-area: main;
+}

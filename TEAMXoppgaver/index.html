@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid black 1px;
+            width: 350px;
+            height: 200px;
+            float: left;
+            font-size: xx-large;
+            text-align: center;
+        }
+        
+        .førstpålinja {
+            clear: left;
+        }
+        
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Advarsel! Her får du epileptiske anfall</h3>
+    <div class="førstpålinja red"></div>
+    <div onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
+    <div class="red"></div>
+
+    <div class="førstpålinja" onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
+    <div class="red"></div>
+    <div onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
+
+    <div class="førstpålinja red"></div>
+    <div onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
+    <div class="red"></div>
+
+    <script>
+        function doSomething(visBilde) {
+            visBilde.innerHTML = /*HTML*/ `
+            <img src="img/getLOGO.jpg"/>
+            `;
+        }
+
+        function doThis(musVekk) {
+            musVekk.innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>

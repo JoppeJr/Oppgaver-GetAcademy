@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHandler2JS</title>
+</head>
+
+<style>
+    div {
+        background: yellow;
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
+
+<body onload="testOnLoad()">
+    <a href="index.html">Event</a>
+    <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onchange="testOnChange()" oninput="testOnInput()" onkeydown="keydown()" />
+    <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()" ondblclick="testdblclick()">Test test test</h3>
+    <h3 omcontextmenu="testContext">Test 2</h3>
+    <h2 id="info"></h2>
+    <div oncontextmenu="myFunction()">
+        <p>Right-click inside this box to see Context Menu</p>
+    </div>
+    <p id="demo"></p>
+
+
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("demo");
+            x.innerHTML = "You right-clicked inside div!";
+            x.style.fontSize = "30px";
+        }
+
+        function testOnLoad() {
+            console.log('Du har loadet Siden')
+            document.getElementById('info').innerHTML += '<li>onload</li>';
+        }
+
+        function testOnChange() {
+            console.log('Du har endret teksten')
+            document.getElementById('info').innerHTML += '<li>onchange</li>';
+        }
+
+        function testOnInput() {
+            console.log('Du Skriver i Boksen')
+        }
+
+        function testOnMouseOver() {
+            console.log('Du har musen over teksten')
+        }
+
+        function testOnMouseOut() {
+            console.log('Du dro musen ut av teksten')
+            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+        }
+
+        function keydown() {
+            console.log('onkeydown')
+        }
+
+        function testdblclick() {
+            console.log('Du har dobbeltklikket texten')
+        }
+    </script>
+</body>
+
+
+
+</html>

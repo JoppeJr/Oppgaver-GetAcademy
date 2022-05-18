@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksempel 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <button onclick="layout1()">Ingen layout</button>
+    <button onclick="layout2()">Vertikal layout</button>
+    <button onclick="layout3()">Horisontal layout</button>
+    <button onclick="layout4()">Grid layout</button>
+    <h1>Eksempel 1</h1>
+    <div id="container">
+        <div class="card">
+            <div class="header green" onclick="showInnercard1()">Verktøy</div>
+            <div id="innerCard1"> </div>
+        </div>
+        <div class="card">
+            <div class="header blue" onclick="showInnercard2()">HTML</div>
+            <div id="innerCard2"></div>
+        </div>
+        <div class="card">
+            <div class="header red" onclick="showInnercard3()">CSS</div>
+            <div id="innerCard3"></div>
+        </div>
+        <div class="card">
+            <div class="header yellow" onclick="showInnercard4()">JavaScript</div>
+            <div id="innerCard4"></div>
+        </div>
+        <div class="card">
+            <div class="header dark" onclick="showInnercard5()">Hode, kropp og ben</div>
+            <div id="innerCard5"></div>
+        </div>
+    </div>
+    <script>
+        function layout1() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('layout1')
+        }
+
+        function layout2() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('layout2')
+        }
+
+        function layout3() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('layout3')
+        }
+
+        function layout4() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('layout4')
+        }
+
+        showInnercard1();
+
+        function showInnercard1() {
+            blankAll();
+            document.getElementById('innerCard1').innerHTML = /*HTML*/ `
+            <div>De to viktigste verktøyene vi skal bruke er disse:
+            <ul>
+                <li>
+                    Koderedigeringsprogrammet
+                    <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+                    <br/> Vi skal bruke noen <i>extensions</i>:
+                    <ul>
+                        <li>JavaScript-booster</li>
+                        <li>es6-string-html</li>
+                        <li>live-server</li>
+                        <li>live-share</li>
+
+                    </ul>
+                </li>
+                <li>Nettleseren <a href="https://www.google.com/intl/no/chrome/">Google Chrome</a></li>
+            </ul>
+            </div>
+
+            `;
+        }
+
+
+        function showInnercard2() {
+            blankAll();
+            document.getElementById('innerCard2').innerHTML = /*HTML*/ `
+            <div>Vi bruker HTML til å definere et dokument.
+            <ul>
+                <li>Tagger for grunnleggende oppsett av en HTML-fil</li>
+                <li>Tagger for grunnleggende formatering av tekst</li>
+                <li><tt>&lt;div&gt;</tt></li>
+                <li><tt>&lt;input type="text"&gt;</tt></li>
+                <li><tt>&lt;button&gt;</tt></li>
+                <li><a href="https://www.w3schools.com/html/default.asp" target="_new">W3Schools HTML Tutorial</a>
+                </li>
+                <li><a href="https://www.w3schools.com/tags/default.asp" target="_new">W3Schools HTML Reference</a>
+                </li>
+            </ul>
+            </div>
+            `;
+        }
+
+        function showInnercard3() {
+            blankAll();
+            document.getElementById('innerCard3').innerHTML = /*HTML*/ `
+            <div>
+                Vi bruker CSS til å <i>style</i> et dokument, altså farger, fonter, utseende og lignende.
+                <ul>
+                    <li><tt>background-color</tt></li>
+                    <li><tt>color</tt></li>
+                    <li><tt>padding</tt></li>
+                    <li><tt>margin</tt></li>
+                    <li><tt>border</tt></li>
+                    <li><tt>text-align</tt></li>
+                    <li><tt>font-size</tt></li>
+                    <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_new">Flexbox</a></li>
+                    <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_new">Grid</a></li>
+                    <li><a href="https://www.w3schools.com/css/default.asp" target="_new">W3Schools CSS Tutorial</a>
+                    </li>
+                    <li><a href="https://www.w3schools.com/cssref/default.asp" target="_new">W3Schools CSS Reference</a>
+                    </li>
+                </ul>
+            </div>
+            `;
+        }
+
+        function showInnercard4() {
+            blankAll();
+            document.getElementById('innerCard4').innerHTML = /*HTML*/ `
+            <div>
+                Det viktigste vi skal lære er programmeringsspråket JavaScript. Vi skal lære grunnleggende programmering ved å manipulere HTML- og CSS-kode på en nettside ved hjelp av JavaScript.
+                <ul>
+                    <li>Det finnes en W3Schools JavaScript Tutorial, men her anbefaler vi heller å følge kurset vårt på Moodle.
+                    </li>
+                    <li><a href="https://www.w3schools.com/jsref/default.asp" target="_new">W3Schools JavaScript
+                    Reference</a></li>
+
+                </ul>
+            </div>
+            `;
+        }
+
+
+        function showInnercard5() {
+            blankAll();
+            document.getElementById('innerCard5').innerHTML = /*HTML*/ `
+                <div id="head" class="bodyPart"></div>
+                <div id="body" class="bodyPart"></div>
+                <div id="legs" class="bodyPart"></div>
+                 `;
+            selectHEAD1();
+            selectBody1();
+            selectLegs1();
+        }
+
+        function blankAll() {
+            document.getElementById('innerCard1').innerHTML = '';
+            document.getElementById('innerCard2').innerHTML = '';
+            document.getElementById('innerCard3').innerHTML = '';
+            document.getElementById('innerCard4').innerHTML = '';
+            document.getElementById('innerCard5').innerHTML = '';
+        }
+
+        function selectHEAD1() {
+            document.getElementById('head').innerHTML = /*HTML*/ `
+                <button onclick="selectHEAD4()">◀</button>
+                <img src="img/head1.png" />
+                <button onclick="selectHEAD2()">▶</button>
+        `;
+        }
+
+        function selectHEAD2() {
+            document.getElementById('head').innerHTML = /*HTML*/ `
+                <button onclick="selectHEAD1()">◀</button>
+                <img src="img/head2.png" />
+                <button onclick="selectHEAD3()">▶</button>
+        `;
+        }
+
+        function selectHEAD3() {
+            document.getElementById('head').innerHTML = /*HTML*/ `
+                <button onclick="selectHEAD2()">◀</button>
+                <img src="img/head3.png" />
+                <button onclick="selectHEAD4()">▶</button>
+        `;
+        }
+
+        function selectHEAD4() {
+            document.getElementById('head').innerHTML = /*HTML*/ `
+                <button onclick="selectHEAD3()">◀</button>
+                <img src="img/head4.png" />
+                <button onclick="selectHEAD1()">▶</button>
+        `;
+        }
+
+        function selectBody1() {
+            document.getElementById('body').innerHTML = /*HTML*/ `
+                <button onclick="selectBody4()">◀</button>
+                <img src="img/body1.png" />
+                <button onclick="selectBody2()">▶</button>
+        `;
+        }
+
+        function selectBody2() {
+            document.getElementById('body').innerHTML = /*HTML*/ `
+                <button onclick="selectBody1()">◀</button>
+                <img src="img/body2.png" />
+                <button onclick="selectBody3()">▶</button>
+        `;
+        }
+
+        function selectBody3() {
+            document.getElementById('body').innerHTML = /*HTML*/ `
+                <button onclick="selectBody2()">◀</button>
+                <img src="img/body3.png" />
+                <button onclick="selectBody4()">▶</button>
+        `;
+        }
+
+        function selectBody4() {
+            document.getElementById('body').innerHTML = /*HTML*/ `
+                <button onclick="selectBody3()">◀</button>
+                <img src="img/body4.png" />
+                <button onclick="selectBody1()">▶</button>
+        `;
+        }
+
+        function selectLegs1() {
+            document.getElementById('legs').innerHTML = /*HTML*/ `
+                <button onclick="selectLegs4()">◀</button>
+                <img src="img/legs1.png" />
+                <button onclick="selectLegs2()">▶</button>
+        `;
+        }
+
+        function selectLegs2() {
+            document.getElementById('legs').innerHTML = /*HTML*/ `
+                <button onclick="selectLegs1()">◀</button>
+                <img src="img/legs2.png" />
+                <button onclick="selectLegs3()">▶</button>
+        `;
+        }
+
+        function selectLegs3() {
+            document.getElementById('legs').innerHTML = /*HTML*/ `
+                <button onclick="selectLegs2()">◀</button>
+                <img src="img/legs3.png" />
+                <button onclick="selectLegs4()">▶</button>
+        `;
+        }
+
+        function selectLegs4() {
+            document.getElementById('legs').innerHTML = /*HTML*/ `
+                <button onclick="selectLegs3()">◀</button>
+                <img src="img/legs4.png" />
+                <button onclick="selectLegs1()">▶</button>
+        `;
+        }
+    </script>
+</body>
+
+</html>

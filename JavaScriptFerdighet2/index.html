@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-Spørsmål</title>
+
+</head>
+
+
+<body>
+
+    <div id="page">
+        <h1>Erik`s Quiz</h1>
+        <h3>Hva slags redskap er en bile?</h3>
+        <div id="feil1" onclick="feil1()">BH-Spile</div>
+        <div id="riktig" onclick="riktig1()">Øks</div>
+        <div id="feil2" onclick="feil2()">Bil uten Tak</div>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <script>
+        function feil1() {
+            document.getElementById('feil1').innerHTML = /*HTML*/ `
+            <div style="background-color: red; width: 100px; color: white; font-size: x-large;">Feil Svar</div>
+            `;
+        }
+
+        function feil2() {
+            document.getElementById('feil2').innerHTML = /*HTML*/ `
+            <div style="background-color: red; width: 100px; color: white; font-size: x-large;">Feil Svar</div>
+            `;
+        }
+
+        function riktig1() {
+            document.getElementById('riktig').innerHTML = /*HTML*/ `
+            <div style="background-color: green; width: 100px; color: white; font-size: x-large;">Riktig</div>
+            `;
+        }
+
+        function reset() {
+            document.getElementById('page').innerHTML = /*HTML*/ `
+            <div id="page">
+                <h1>Eriks Quiz</h1>
+                <h3>Hva slags redskap er en bile?</h3>
+                <div id="feil1" onclick="feil1()">BH-Spile</div>
+                <div id="riktig" onclick="riktig1()">Øks</div>
+                <div id="feil2" onclick="feil2()">Bil uten Tak</div>
+                <button onclick="reset()">Reset</button>
+            </div>
+            `;
+        }
+    </script>
+
+
+</body>
+
+</html>

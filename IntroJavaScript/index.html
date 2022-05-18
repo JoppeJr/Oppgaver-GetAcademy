@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.card {
+            background-color: darkgray;
+            width: 500px;
+            margin: 10px;
+        }
+        
+        div.color1 {
+            background-color: aqua;
+        }
+        
+        div.color2 {
+            background-color: bisque;
+        }
+        
+        div.header {
+            text-align: center;
+            font-size: 200%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Introduksjon til JavaScript</h3>
+    <ol>
+        <li> Finne frem til en tagg</li>
+        <li> Endre HTML</li>
+        <li> Trekke ut funksjoner</li>
+        <li> Kalle andre funksjoner</li>
+    </ol>
+    <h3>Så bruker vi JavaScript til dette:</h3>
+    <ol>
+        <li> Åpne og lukke</li>
+        <li> Velge hode</li>
+    </ol>
+
+
+
+    <div class="card">
+        <div class="header color1" onclick="show1()">Overskrift 1</div>
+        <div id="knappensTag1"></div>
+    </div>
+    <div class="card">
+        <div class="header color2" onclick="show2()">Overskrift 2</div>
+        <div id="knappensTag2">
+
+        </div>
+    </div>
+
+
+
+    <button onclick="blankAll()">Trykk Her</button>
+
+
+    <h3>Bla opp og ned</h3>
+    <div style="display:flex;" id="numberAndButtons"></div>
+
+    <script>
+        showNumber1();
+
+        function showNumber1() {
+            document.getElementById('numberAndButtons').innerHTML = /*HTML*/ `
+            <button onclick="showNumber4()">◀</button> 
+            <div style="width: 200px; text-align:center">
+               <img src="img/head1.png"/>
+            </div>
+            <button onclick="showNumber2()">▶</button>
+            `;
+        }
+
+        function showNumber2() {
+            document.getElementById('numberAndButtons').innerHTML = /*HTML*/ `
+            <button onclick="showNumber1()">◀</button>
+            <div style="width: 200px; text-align:center">
+                <img src="img/head2.png"/>
+            </div>
+            <button onclick="showNumber3()">▶</button>
+            `;
+        }
+
+        function showNumber3() {
+            document.getElementById('numberAndButtons').innerHTML = /*HTML*/ `
+            <button onclick="showNumber2()">◀</button>
+            <div style="width: 200px; text-align:center">
+                <img src="img/head3.png"/>
+            </div>
+            <button onclick="showNumber4()">▶</button>
+            `;
+        }
+
+        function showNumber4() {
+            document.getElementById('numberAndButtons').innerHTML = /*HTML*/ `
+            <button onclick="showNumber3()">◀</button>
+            <div style="width: 200px; text-align:center">
+                <img src="img/head4.png"/>
+            </div>
+            <button onclick="showNumber1()">▶</button>
+            `;
+        }
+
+
+        function show1() {
+            blankAll();
+            document.getElementById('knappensTag1').innerHTML = /*HTML*/ `
+            <li> Åpne og lukke</li>
+            <li> Velge hode</li>
+            
+            `;
+        }
+
+        function show2() {
+            blankAll();
+            document.getElementById('knappensTag2').innerHTML = /*HTML*/ `
+            <li> Finne frem til en tagg</li>
+            <li> Endre HTML</li>
+            
+            `;
+        }
+
+        function blankAll() {
+            document.getElementById('knappensTag1').innerHTML = '';
+            document.getElementById('knappensTag2').innerHTML = '';
+        }
+    </script>
+
+</body>
+
+</html>
