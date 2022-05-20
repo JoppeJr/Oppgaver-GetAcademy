@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptFerdighet6+7</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <p>Ferdighet 6 - Sette sammen tekst fra flere deler!</p>
+        <input id="sizeSlider" type="range" min="100" max="500" step="10" oninput="showDiv()" />
+        <input id="borderSlider" type="range" min="1" max="50" step="1" oninput="showDiv()" />
+        <input id="radius" type="range" min="1" max="100" step="1" oninput="showDiv()">
+        <br/><input id="textInput" type="text" oninput="showDiv()" value="Endre Teksten!" />
+        <select id="colorChooser" onchange="showDiv()">
+        <option value="red">Red Color</option>
+        <option selected value="green">Green Color</option>
+        <option value="blue">Blue Color</option>
+        
+        </select>
+        <select id="borderChooser" onchange="showDiv()">
+            <option value="solid black ">Black Border</option>
+            <option selected value="solid grey ">Grey Border</option>
+            <option value="">No Border</option>
+        </select>
+        <div id="resultat"></div>
+        <div id="resultatHtml" style="font-family: monospace"></div>
+    </div>
+    <div>
+
+        <p>
+            Ferdigheter 6 - egen kode ⬆.
+        </p>
+        <p>
+            Ferdigheter 7 - egen kode ⬇.
+        </p>
+
+        <input id="value1" type="range" min="36" max="1000" step="1" oninput="calculate()" value="40" />
+        <input id="value2" type="range" min="146" max="1000" step="1" oninput="calculate()" value="150" />
+        <div id="resultatM"></div>
+
+        <p>
+            Ferdigheter 7a - egen kode ⬇.
+        </p>
+        <button id="get" onclick="runDiv()">Trykk her</button>
+        <div id="resultat7a"></div>
+
+        <script>
+            var resultatDiv = document.getElementById('resultat');
+            var resultatHtmlDiv = document.getElementById('resultatHtml');
+            var sizeSlider = document.getElementById('sizeSlider');
+            var textInput = document.getElementById('textInput');
+            var colorChooser = document.getElementById('colorChooser');
+            var borderSlider = document.getElementById('borderSlider');
+            var borderChooser = document.getElementById('borderChooser');
+            var radius = document.getElementById('radius');
+
+            showDiv();
+
+
+            function showDiv() {
+                var size = sizeSlider.value;
+                var text = textInput.value;
+                var color = colorChooser.value;
+                var border = borderSlider.value;
+                var borderColor = borderChooser.value;
+                var bradius = radius.value;
+                var width = 'width: ' + size + 'px; ';
+                var backgroundColor = 'background-color: ' + color + ' ; ';
+                var height = 'height: ' + size + 'px; ';
+                var border = 'border: ' + borderColor + border + 'px; ';
+                var bradius = 'border-radius: ' + bradius + 'px; ';
+                var style = 'style="' + border + backgroundColor + width + height + bradius + '"';
+                resultatDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
+                resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+
+            }
+
+            var resultatMDiv = document.getElementById('resultatM')
+            var boxheight = document.getElementById('value1');
+            var boxwidth = document.getElementById('value2');
+
+
+
+            calculate();
+
+
+            function calculate() {
+                var height2 = parseInt(boxheight.value);
+                var width2 = parseInt(boxwidth.value);
+                var produkt = height2 * width2;
+                var sum = height2 + width2 + height2 + width2;
+                var b = 'solid black; '
+                var border = 'border: ' + b + 'height: ' + height2 + 'px; ' + 'width: ' + width2 + 'px; ';
+                var style = 'style="' + border + '"'
+                resultatMDiv.innerHTML = '<div ' + style + '>' + height2 + '*' + width2 + '=' + produkt + '<br/>' +
+                    height2 + '+' + width2 + '+' + height2 + '+' + width2 + '=' + sum + '</div>';
+            }
+
+            var resultat7aDiv = document.getElementById('resultat7a');
+
+            runDiv();
+
+            function runDiv() {
+                var height3 = 1 + Math.floor(Math.random() * 10)
+                var width3 = 1 + Math.floor(Math.random() * 10)
+                var border3 = 1 + Math.floor(Math.random() * 10)
+                var sum = height3 + width3;
+                var differense = height3 - width3;
+                var produkt = height3 * width3;
+                var kvotient = height3 / width3;
+                resultat7aDiv.innerHTML = '<div style="' + 'border: ' + 'solid black: ' + border3 + 'px; ' + 'height: ' + height3 + 'px; ' + 'width: ' + width3 + 'px; ' + '>' +
+                    border3 + 'px; ' + 'height: ' + height3 + 'px; ' + 'width: ' + width3 + 'px; ' + '<br/>'
+                height3 + '+' + width3 + '=' + sum + '<br/>' +
+                    height3 + '-' + width3 + '=' + differense + '<br/>' +
+                    height3 + '*' + width3 + '=' + produkt + '<br/>' +
+                    height3 + '/' + width3 + '=' + kvotient + '</div>';
+            }
+        </script>
+
+
+</body>
+
+</html>

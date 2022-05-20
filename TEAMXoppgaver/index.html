@@ -6,51 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
-        div {
-            border: solid black 1px;
-            width: 350px;
-            height: 200px;
-            float: left;
-            font-size: xx-large;
-            text-align: center;
-        }
-        
-        .førstpålinja {
-            clear: left;
+        .board {
+            width: 666px;
+            height: 666px;
+            margin: 20px;
+            border: 1px solid #333;
         }
         
         .red {
+            width: 220px;
+            height: 220px;
+            border: 1px solid rgb(0, 0, 0);
+            float: left;
             background-color: red;
         }
+        
+        .white {
+            width: 220px;
+            height: 220px;
+            border: 1px solid rgb(0, 0, 0);
+            float: left;
+        }
+        
+        button {
+            width: 100px;
+            height: 40px;
+            padding: 7px 7px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            background-color: red;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            margin-left: 300px;
+        }
     </style>
+
 </head>
 
 <body>
-    <h3>Advarsel! Her får du epileptiske anfall</h3>
-    <div class="førstpålinja red"></div>
-    <div onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
-    <div class="red"></div>
+    <div class="board">
 
-    <div class="førstpålinja" onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
-    <div class="red"></div>
-    <div onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
 
-    <div class="førstpålinja red"></div>
-    <div onmouseover="doSomething(this)" onmouseout="doThis(this)"></div>
-    <div class="red"></div>
+        <div id='red1' class="red" onclick="clicked(this)"></div>
+        <div id='white1' class="white" onclick="clicked2(this)" style="background-image: url(img/getacademylogo.png); background-size: contain;"></div>
+        <div id='red2' class="red" onclick="clicked3(this)"></div>
+        <div id='white2' class="white" onclick="clicked4(this)" style="background-image: url(img/getacademylogo.png); background-size: contain;"></div>
+        <div id='red3' class="red" onclick="clicked5(this)"></div>
+        <div id='white3' class="white" onclick="clicked6(this)" style="background-image: url(img/getacademylogo.png); background-size: contain;"></div>
+        <div id='red4' class="red" onclick="clicked7(this)"></div>
+        <div id='white4' class="white" onclick="clicked8(this)" style="background-image: url(img/getacademylogo.png); background-size: contain;"></div>
+        <div id='red5' class="red" onclick="clicked9(this)"></div>
+    </div>
+
+    <button onclick="reset()">RESET</button>
+
+
+
+
+
+
 
     <script>
-        function doSomething(visBilde) {
-            visBilde.innerHTML = /*HTML*/ `
-            <img src="img/getLOGO.jpg"/>
-            `;
+        function clicked(x) {
+            x.innerHTML = "<img src='img/9.jpg' style='height: 100%; width: 100%; object-fit: contain'  />";
         }
 
-        function doThis(musVekk) {
-            musVekk.innerHTML = '';
+        function clicked2(x) {
+            x.innerHTML = "<img src='img/8.jpg'style='height: 100%; width: 100%; object-fit: contain' />";
+        }
+
+        function clicked3(x) {
+            x.innerHTML = "<img src='img/7.jpg' style='height: 100%; width: 100%; object-fit: contain'/>";
+        }
+
+        function clicked4(x) {
+            x.innerHTML = "<img src='img/6.jpg'style='height: 100%; width: 100%; object-fit: contain' />";
+        }
+
+        function clicked5(x) {
+            x.innerHTML = "<img src='img/5.jpg' style='height: 100%; width: 100%; object-fit: contain' />";
+        }
+
+        function clicked6(x) {
+            x.innerHTML = "<img src='img/4.jpg' style='height: 100%; width: 100%; object-fit: contain' />";
+        }
+
+        function clicked7(x) {
+            x.innerHTML = "<img src='img/3.jpg' style='height: 100%; width: 100%; object-fit: contain' />";
+        }
+
+        function clicked8(x) {
+            x.innerHTML = "<img src='img/2.jpg' style='height: 100%; width: 100%; object-fit: contain' />";
+        }
+
+        function clicked9(x) {
+            x.innerHTML = "<img src='img/1.jpg' style='height: 100%; width: 100%; object-fit: contain'/>";
+        }
+
+        function reset() {
+            location.reload();
         }
     </script>
+
 </body>
 
 </html>
