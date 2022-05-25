@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferdighet 8</title>
+    <style>
+        .round {
+            border: 1px solid grey;
+            border-radius: 5px;
+            background-color: blanchedalmond;
+        }
+        
+        .blue {
+            background-color: lightblue;
+            border: 1px solid grey;
+        }
+        
+        .red {
+            background-color: rgba(255, 0, 0, 0.438);
+            border: 5px solid grey;
+        }
+        
+        .green {
+            background-color: green;
+            border: 1px solid black;
+        }
+        
+        .square {
+            border: 1px solid black;
+            background-color: aqua;
+        }
+        
+        div.selected::before {
+            content: "🡆";
+        }
+        
+        div.selected::after {
+            content: "🡄";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bla">Number 1</div>
+    <div id="bla2">Number 2</div>
+    <div id="bla3">Number 3</div>
+    <div id="bla4">Number 4</div>
+    <div id="bla5">Number 5</div>
+
+    <input id="chk" type="checkbox" onchange="toggle(this)" value="1" />
+    <input id="chk2" type="checkbox" onchange="toggle2(this)" value="2" />
+    <input id="chk3" type="checkbox" onchange="toggle3(this)" value="3" />
+    <input id="chk4" type="checkbox" onchange="toggle4(this)" value="4" />
+    <input id="chk5" type="checkbox" onchange="toggle5(this)" value="5" />
+    <script>
+        classList.contains(); {
+            document.getElementById('chk').checked = selectedDiv.classList.contains('square');
+            document.getElementById('chk2').checked = selectedDiv.classList.contains('round');
+            document.getElementById('chk3').checked = selectedDiv.classList.contains('red');
+            document.getElementById('chk4').checked = selectedDiv.classList.contains('blue');
+            document.getElementById('chk5').checked = selectedDiv.classList.contains('green');
+        }
+
+        function toggle() {
+            var isChecked = document.getElementById('chk').checked;
+            document.getElementById('bla').classList.toggle('square', isChecked);
+
+
+
+        }
+
+        function toggle2() {
+            var isChecked = document.getElementById('chk2').checked;
+            document.getElementById('bla2').classList.toggle('round', isChecked);
+
+        }
+
+        function toggle3() {
+            var isChecked = document.getElementById('chk3').checked;
+            document.getElementById('bla3').classList.toggle('red', isChecked);
+        }
+
+
+        function toggle4() {
+            var isChecked = document.getElementById('chk4').checked;
+            document.getElementById('bla4').classList.toggle('blue', isChecked);
+        }
+
+        function toggle5() {
+            var isChecked = document.getElementById('chk5').checked;
+            document.getElementById('bla5').classList.toggle('green', isChecked);
+        }
+
+
+        if () {}
+    </script>
+</body>
+
+</html>

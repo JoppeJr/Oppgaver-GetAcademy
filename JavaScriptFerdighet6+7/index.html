@@ -48,81 +48,85 @@
         </p>
         <button id="get" onclick="runDiv()">Trykk her</button>
         <div id="svar"></div>
+    </div>
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        var sizeSlider = document.getElementById('sizeSlider');
+        var textInput = document.getElementById('textInput');
+        var colorChooser = document.getElementById('colorChooser');
+        var borderSlider = document.getElementById('borderSlider');
+        var borderChooser = document.getElementById('borderChooser');
+        var radius = document.getElementById('radius');
 
-        <script>
-            var resultatDiv = document.getElementById('resultat');
-            var resultatHtmlDiv = document.getElementById('resultatHtml');
-            var sizeSlider = document.getElementById('sizeSlider');
-            var textInput = document.getElementById('textInput');
-            var colorChooser = document.getElementById('colorChooser');
-            var borderSlider = document.getElementById('borderSlider');
-            var borderChooser = document.getElementById('borderChooser');
-            var radius = document.getElementById('radius');
-
-            showDiv();
-
-
-            function showDiv() {
-                var size = sizeSlider.value;
-                var text = textInput.value;
-                var color = colorChooser.value;
-                var border = borderSlider.value;
-                var borderColor = borderChooser.value;
-                var bradius = radius.value;
-                var width = 'width: ' + size + 'px; ';
-                var backgroundColor = 'background-color: ' + color + ' ; ';
-                var height = 'height: ' + size + 'px; ';
-                var border = 'border: ' + borderColor + border + 'px; ';
-                var bradius = 'border-radius: ' + bradius + 'px; ';
-                var style = 'style="' + border + backgroundColor + width + height + bradius + '"';
-                resultatDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
-                resultatHtmlDiv.innerText = resultatDiv.innerHTML;
-
-            }
-
-            var resultatMDiv = document.getElementById('resultatM')
-            var boxheight = document.getElementById('value1');
-            var boxwidth = document.getElementById('value2');
+        showDiv();
 
 
 
-            calculate();
 
 
-            function calculate() {
-                var height2 = parseInt(boxheight.value);
-                var width2 = parseInt(boxwidth.value);
-                var produkt = height2 * width2;
-                var sum = height2 + width2 + height2 + width2;
-                var b = 'solid black; '
-                var border = 'border: ' + b + 'height: ' + height2 + 'px; ' + 'width: ' + width2 + 'px; ';
-                var style = 'style=" ' + border + '"'
-                resultatMDiv.innerHTML = '<div ' + style + '>' + height2 + '*' + width2 + '=' + produkt + '<br/>' +
-                    height2 + '+' + width2 + '+' + height2 + '+' + width2 + '=' + sum + '</div>';
-            }
 
-            var svarDiv = document.getElementById('svar');
+        function showDiv() {
+            var size = sizeSlider.value;
+            var text = textInput.value;
+            var color = colorChooser.value;
+            var border = borderSlider.value;
+            var borderColor = borderChooser.value;
+            var bradius = radius.value;
+            var width = 'width: ' + size + 'px; ';
+            var backgroundColor = 'background-color: ' + color + ' ; ';
+            var height = 'height: ' + size + 'px; ';
+            var border = 'border: ' + borderColor + border + 'px; ';
+            var bradius = 'border-radius: ' + bradius + 'px; ';
+            var style = 'style="' + border + backgroundColor + width + height + bradius + '"';
+            resultatDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
+            resultatHtmlDiv.innerText = resultatDiv.innerHTML;
 
-            runDiv();
+        }
 
-            function runDiv() {
-                var height3 = 100 + Math.floor(Math.random() * 20);
-                var width3 = 100 + Math.floor(Math.random() * 20);
-                var border3 = 10 + Math.floor(Math.random() * 5);
-                var sum2 = height3 + width3;
-                var differense = height3 - width3;
-                var produkt2 = height3 * width3;
-                var kvotient = height3 / width3;
-                svarDiv.innerHTML = '<div style="' + 'border: ' + border3 + 'px solid black;' + 'height: ' + height3 + 'px; width: ' + width3 + 'px; ">' +
-                    height3 + '+' + width3 + '=' + sum2 + '<br/>' +
-                    height3 + '-' + width3 + '=' + differense + '<br/>' +
-                    height3 + '*' + width3 + '=' + produkt2 + '<br/>' +
-                    height3 + '/' + width3 + '=' + kvotient + '</div>';
-                console.log(border3)
-                console.log(height3)
-                console.log(width3)
-            }
-        </script>
+        var resultatMDiv = document.getElementById('resultatM')
+        var boxheight = document.getElementById('value1');
+        var boxwidth = document.getElementById('value2');
+
+
+
+        calculate();
+
+
+        function calculate() {
+            var height2 = parseInt(boxheight.value);
+            var width2 = parseInt(boxwidth.value);
+            var produkt = height2 * width2;
+            var sum = height2 + width2 + height2 + width2;
+            var b = 'solid black; '
+            var border = 'border: ' + b + 'height: ' + height2 + 'px; ' + 'width: ' + width2 + 'px; ';
+            var style = 'style=" ' + border + '"'
+            resultatMDiv.innerHTML = '<div ' + style + '>' + height2 + '*' + width2 + '=' + produkt + '<br/>' +
+                height2 + '+' + width2 + '+' + height2 + '+' + width2 + '=' + sum + '</div>';
+        }
+
+        var svarDiv = document.getElementById('svar');
+
+        runDiv();
+
+        function runDiv() {
+            var height3 = 100 + Math.floor(Math.random() * 20);
+            var width3 = 100 + Math.floor(Math.random() * 20);
+            var border3 = 10 + Math.floor(Math.random() * 5);
+            var sum2 = height3 + width3;
+            var differense = height3 - width3;
+            var produkt2 = height3 * width3;
+            var kvotient = height3 / width3;
+            svarDiv.innerHTML = '<div style="' + 'border: ' + border3 + 'px solid black;' + 'height: ' + height3 + 'px; width: ' + width3 + 'px; ">' +
+                height3 + '+' + width3 + '=' + sum2 + '<br/>' +
+                height3 + '-' + width3 + '=' + differense + '<br/>' +
+                height3 + '*' + width3 + '=' + produkt2 + '<br/>' +
+                height3 + '/' + width3 + '=' + kvotient + '</div>';
+            console.log(border3)
+            console.log(height3)
+            console.log(width3)
+        }
+    </script>
 
 
 </body>

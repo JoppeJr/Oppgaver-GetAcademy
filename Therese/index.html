@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <div id="app"></div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        showDiv()
+
+        function showDiv() {
+            document.getElementById('app').innerHTML += `
+            <h1>Her har du Therese\`s ansikts utrykk under en dag</h1>
+            <div id="før">før</div>
+            <button onclick="show1(this)">1 - før "The Joke"</button>
+            <div id="etter">etter</div>
+            <button onclick="show2(this)">2 - etter "The Joke"</button>
+            <div id="dårlig">dårlig</div>
+            <button onclick="show3(this)">3 - ved en dårlig "Joke" </button>
+            <button onclick="reset()">RESET</button>
+            `;
+        }
+
+        function show1() {
+            document.getElementById('før').innerHTML = /*HTML*/ `
+            <img src = "img/ThereseSmile2.jpg"/>
+            `;
+        }
+
+        function show2() {
+            document.getElementById('etter').innerHTML = /*HTML*/ `
+            <img src="img/ThereseSmile1.jpg" />
+            `;
+        }
+
+        function show3() {
+            document.getElementById('dårlig').innerHTML = /*HTML*/ `
+            <img src="img/Therese3.jpg" />
+            `;
+        }
+
+
+        function reset() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
