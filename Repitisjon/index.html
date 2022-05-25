@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="background-color: grey; color:aliceblue; width: fit-content; border-radius: 5px;">
+
+        <button onclick="clickMe()">Klikk på meg</button>
+        <input id="textInput" type="text" onchange="showDiv()" value="Skriv Her!">
+        <button onclick="blankliste()">blank ut liste</button>
+        <div id="resultat"></div>
+
+
+    </div>
+    <div>
+        <h2 onclick="doSomething(this, 'hei på deg')">HeI</h2>
+        <h2 onclick="doSomething(this, 'hade på badet')">Ha det</h2>
+
+
+    </div>
+    <div>
+
+    </div>
+    <script>
+        function clickMe() {
+            document.getElementById('resultat').innerHTML = 'Du klikket på meg';
+        }
+
+        var inputText = document.getElementById('textInput');
+        var resultatDiv = document.getElementById('resultat')
+
+        function showDiv() {
+            var text = textInput.value;
+
+            resultatDiv.innerHTML += '<div> <li>' + text + '</li></div>';
+        }
+
+        function blankliste() {
+            resultatDiv.innerHTML = '';
+        }
+
+        function doSomething(x, innerText) {
+            x.innerHTML = `${innerText}`;
+        }
+    </script>
+
+</body>
+
+</html>
