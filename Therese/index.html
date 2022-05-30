@@ -12,7 +12,7 @@
 <body>
 
     <div id="app"></div>
-    </div>
+
 
 
 
@@ -21,10 +21,11 @@
 
 
     <script>
+        let appDiv = document.getElementById('app');
         showDiv()
 
         function showDiv() {
-            document.getElementById('app').innerHTML += `
+            appDiv.innerHTML += `
             <h1>Her har du Therese\`s ansikts utrykk under en dag</h1>
             <div id="før">før</div>
             <button onclick="show1(this)">1 - før "The Joke"</button>
