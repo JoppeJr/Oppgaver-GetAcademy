@@ -11,12 +11,20 @@
 <body>
     <div id="app"></div>
 
+
+
+
+
     <script>
         // model
         var points = 0;
         var pointsPerClick = 1;
         var smileyIndex = 0;
         var juks = 100;
+        var cheatenabled = false;
+        var CheatText = '';
+
+
 
 
 
@@ -25,6 +33,13 @@
         updateView();
 
         function updateView() {
+            if (cheatenabled == true) {
+                CheatText = '<div style="color: red;">Cheater Spotted!';
+            } else {
+                CheatText == '';
+            }
+
+
             var smiley = smileyIndex == 0 ? '😀' : '😁';
             document.getElementById('app').innerHTML = /*HTML*/ `
                 <div id="image" onclick="doClick()">${smiley}</div>
@@ -32,6 +47,7 @@
                 <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
                 <button onclick="Cheater()">For juksemakere!</button>
                 <button onclick="reset()">Restart</button>
+                <div id="vedjuks">${CheatText}</div>
             `;
         }
         // controller
@@ -48,13 +64,14 @@
             updateView();
         }
 
+
         function Cheater() {
+            cheatenabled = true;
             points += juks;
             pointsPerClick = juks;
-            console.log('Cheater!')
-
             updateView();
 
+            console.log('Cheater!')
         }
 
         function reset() {

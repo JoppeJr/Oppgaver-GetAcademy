@@ -11,16 +11,21 @@
 <body>
     <div id="app"></div>
     <script>
-        var name;
+        // model
+        var namePers;
         var age;
-
+        //view
         updateView();
 
         function updateView() {
+            var nameTxt = namePers ? `Hei, ${namePers}!` : 'Fyll ut navn i tekstfeltet.';
+            var ageTxt = age ? `Du er ${age} år gammel.` : 'Velg alder i slideren';
             document.getElementById('app').innerHTML = /*HTML*/ `
             Hva heter du?</br>
             <input 
                 type="text"
+                oninput="namePers = this.value; updateView();"
+                value="${namePers ? namePers : ''}"
             />
             <br/>
 
@@ -31,16 +36,22 @@
                 max="120"
                 step="1"
                 value="26"
+                oninput="age = this.value"
             /><br/>
             <button onclick="registrer()">Registrer</button>
 
             <h3>Se Her</h3>
             <hr/>
-            Hei, ${name}!
+            ${nameTxt}!
             <hr/>
-            Du er ${age} år gammel!
+            ${ageTxt}
             <hr/>
             `;
+        }
+        //controller
+        function registrer() {
+
+            updateView();
         }
     </script>
 
