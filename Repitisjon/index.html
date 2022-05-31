@@ -6,48 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .inputtingen {
+            width: fit-content;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div style="background-color: grey; color:aliceblue; width: fit-content; border-radius: 5px;">
-
-        <button onclick="clickMe()">Klikk på meg</button>
-        <input id="textInput" type="text" onchange="showDiv()" value="Skriv Her!">
-        <button onclick="blankliste()">blank ut liste</button>
-        <div id="resultat"></div>
+    <div id="app" class="inputtingen"></div>
 
 
-    </div>
-    <div>
-        <h2 onclick="doSomething(this, 'hei på deg')">HeI</h2>
-        <h2 onclick="doSomething(this, 'hade på badet')">Ha det</h2>
-
-
-    </div>
-    <div>
-
-    </div>
     <script>
-        function clickMe() {
-            document.getElementById('resultat').innerHTML = 'Du klikket på meg';
-        }
+        let appDiv = document.getElementById('app');
+        //model all informasjon
+        let text = '';
+        let items = '';
+        let resultat = '';
 
-        var inputText = document.getElementById('textInput');
-        var resultatDiv = document.getElementById('resultat')
+
+        //view det som vises på siden
+        showDiv();
 
         function showDiv() {
-            var text = textInput.value;
+            appDiv.innerHTML = /*html*/ `
+            <input  type="text" onchange="items = this.value;" value="">
+            <button onclick="registrer()">Registrer</button>
+            <button onclick="blankliste()">blank ut liste</button>
 
-            resultatDiv.innerHTML += '<div> <li>' + text + '</li></div>';
+            <div style="background-color: grey; color:aliceblue;">${resultat}</div>
+            `;
+
         }
+        //controller hva man gjør med View og Modell
+        function registrer() {
+            console.log('test2');
+            resultat += '<li>' + items + '</li>';
+            showDiv();
+        }
+        // function remove(){
 
+        //}
         function blankliste() {
-            resultatDiv.innerHTML = '';
-        }
-
-        function doSomething(x, innerText) {
-            x.innerHTML = `${innerText}`;
+            resultat = '';
+            showDiv();
+            console.log('trashed');
         }
     </script>
 
