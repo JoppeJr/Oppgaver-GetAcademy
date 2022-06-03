@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 100px);
+            grid-template-rows: repeat(8, 100px);
+        }
+        
+        .whitePiece {
+            color: white;
+            text-shadow: 1px 1px gray;
+        }
+        
+        .blackPiece {
+            color: black;
+        }
+        
+        .lightSquare,
+        .darkSquare {
+            font-size: 450%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .lightSquare {
+            background-color: rgb(240, 217, 181);
+        }
+        
+        .darkSquare {
+            background-color: rgb(181, 136, 99);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board"></div>
+    <script>
+        showSjakk();
+
+        function showSjakk() {
+
+
+
+
+            document.getElementById('board').innerHTML = /*html*/ `
+                <div class="lightSquare blackPiece">♜</div>
+                <div class="darkSquare blackPiece">♞</div>
+                <div class="lightSquare blackPiece">♝</div>
+                <div class="darkSquare blackPiece">♛</div>
+                <div class="lightSquare blackPiece">♚</div>
+                <div class="darkSquare blackPiece">♝</div>
+                <div class="lightSquare blackPiece">♞</div>
+                <div class="darkSquare blackPiece">♜</div>
+            
+                <div class="darkSquare blackPiece">♟</div>
+                <div class="lightSquare blackPiece">♟</div>
+                <div class="darkSquare blackPiece">♟</div>
+                <div class="lightSquare blackPiece">♟</div>
+                <div class="darkSquare blackPiece">♟</div>
+                <div class="lightSquare blackPiece">♟</div>
+                <div class="darkSquare blackPiece">♟</div>
+                <div class="lightSquare blackPiece">♟</div>
+            ${blankRowLight()} <!-- Henter funksjon BlankRowLight fra funcjon på linje 98 -->
+
+            ${blankRowDark()}
+
+            ${blankRowLight()}
+
+            ${blankRowDark()}
+                <div class="lightSquare whitePiece">♟</div>
+                <div class="darkSquare whitePiece">♟</div>
+                <div class="lightSquare whitePiece">♟</div>
+                <div class="darkSquare whitePiece">♟</div>
+                <div class="lightSquare whitePiece">♟</div>
+                <div class="darkSquare whitePiece">♟</div>
+                <div class="lightSquare whitePiece">♟</div>
+                <div class="darkSquare whitePiece">♟</div>
+
+
+                <div class="darkSquare whitePiece">♜</div>
+                <div class="lightSquare whitePiece">♞</div>
+                <div class="darkSquare whitePiece">♝</div>
+                <div class="lightSquare whitePiece">♛</div>
+                <div class="darkSquare whitePiece">♚</div>
+                <div class="lightSquare whitePiece">♝</div>
+                <div class="darkSquare whitePiece">♞</div>
+                <div class="lightSquare whitePiece">♜</div>
+            `;
+        }
+
+        function pawnRow() {
+
+        }
+
+        function blankRowLight() {
+            return /*html*/ ` <!-- Funksjonen sier at blankRowLight starter med div light-->
+                <div class="lightSquare"></div>
+                ${blankRowDark7()}<!--Og henter ut resten av diven fra funksjonen blankRowDark7() -->
+                `;
+        }
+
+        function blankRowDark() {
+            return /*html*/ `
+                ${blankRowDark7()}
+                <div class="lightSquare"></div>
+                `;
+        }
+
+        function blankRowDark7() {
+            return /*html*/ ` <!-- funksjon som indeholder likheter som vi har trekt til blankRowLight og Dark-->
+                <div class="darkSquare">x</div>
+                <div class="lightSquare"><--</div>
+                <div class="darkSquare">Sta</div>
+                <div class="lightSquare">rt</div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferdighet 12!</title>
+    <style>
+        div {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <p><button onclick="reload()">reload</button>Ferdeighet 12 - funksjoner med returverdi </p>
+
+    <script>
+        tilfeldigFirkant();
+
+        function tilfeldigFirkant() {
+            var endX = tilfeldigTall(window.innerWidth * 0.2, window.innerWidth);
+            var endY = tilfeldigTall(window.innerHeight * 0.2, window.innerHeight);
+
+            var startX = tilfeldigTall(1, endX * 0.8);
+            var startY = tilfeldigTall(1, endY * 0.8);
+            var bredde = endX - startX;
+            var høyde = endY - startY;
+            var farge = tilfeldigFarge();
+            var Bokstav = tilfeldigBokstav();
+            var divHtml = '<div style="' +
+                delAvStyle('left', startX + 'px') +
+                delAvStyle('top', startY + 'px') +
+                delAvStyle('width', bredde + 'px') +
+                delAvStyle('height', høyde + 'px') +
+                delAvStyle('background-color', farge) + '">' + Bokstav + '</div>';
+            document.write(divHtml);
+            if (Math.random() < 0.9) tilfeldigFirkant();
+        }
+
+        function delAvStyle(navn, verdi) {
+            return navn + ':' + verdi + ';';
+        }
+
+        function tilfeldigFarge() {
+            return '#' +
+                tilfeldigTallEllerBokstavABCDEF() +
+                tilfeldigTallEllerBokstavABCDEF() +
+                tilfeldigTallEllerBokstavABCDEF() +
+                tilfeldigTallEllerBokstavABCDEF() +
+                tilfeldigTallEllerBokstavABCDEF() +
+                tilfeldigTallEllerBokstavABCDEF();
+        }
+
+        function tilfeldigTallEllerBokstavABCDEF() {
+            var tall = tilfeldigTall(0, 15);
+            if (tall < 10) return tall;
+            const charCodeA = 'a'.charCodeAt(0);
+            return String.fromCharCode(tall - 10 + charCodeA);
+
+
+        }
+
+
+
+
+        function tilfeldigBokstav() {
+            const alphabet = "abcdefghijklmnopqrstuvwxyzæøå"
+            const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
+
+
+
+            return alphabet[Math.floor(Math.random() * alphabet.length)]
+        }
+
+
+        function tilfeldigTall(minimun, maksimun) {
+            return minimun + Math.floor(Math.random() * (maksimun - minimun + 1));
+        }
+
+
+        function reload() {
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>

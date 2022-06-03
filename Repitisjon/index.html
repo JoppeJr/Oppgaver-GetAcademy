@@ -27,6 +27,9 @@
         let resultat = '';
 
 
+
+
+
         //view det som vises på siden
         showDiv();
 
@@ -36,23 +39,30 @@
             <button onclick="registrer()">Registrer</button>
             <button onclick="blankliste()">blank ut liste</button>
 
-            <div style="background-color: grey; color:aliceblue;">${resultat}</div>
+            <div id="${id}" style="background-color: grey; color:aliceblue;">${resultat}</div>
             `;
 
         }
         //controller hva man gjør med View og Modell
         function registrer() {
-            console.log('test2');
-            resultat += '<li>' + items + '</li>';
+            let id = Math.floor((Math.random() * 100000000) + 1);
+
+            resultat += `<div id="${id}">${items} <input type="checkbox" onclick="remove(${id})"></div>`;
             showDiv();
         }
-        // function remove(){
 
-        //}
+        function remove(x) { // grå sone, er en veiw funtion men satt i controller.
+            // console.log(x)
+            // x = '';
+
+            document.getElementById(x).outerHTML = '';
+            // showDiv();
+        }
+
         function blankliste() {
             resultat = '';
             showDiv();
-            console.log('trashed');
+
         }
     </script>
 

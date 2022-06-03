@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document md liste</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+
+        let resultatListe = [];
+        let items = '';
+
+
+        // let x = 1;
+
+        // if (x === 1) {
+        //     let x = 2;
+
+        //     console.log(x, 'inni if');
+        //     // expected output: 2
+        // }
+
+        // console.log(x, 'utenfor if');
+
+
+        view();
+
+        function view() {
+
+
+            let html = `<input type="text" oninput="items = this.value"> 
+                        <button onclick="additem()">registrer</button>
+                        <button onclick="empty()">empty</button>`
+
+            for (let i = 0; i < resultatListe.length; i++) {
+                html += `<div>${resultatListe[i]} <button onclick='deleteThis(${i})'>x</button></div>`
+            }
+            document.getElementById('app').innerHTML = html
+        }
+
+
+        function additem() {
+
+
+            if (items != '') { //hvis items ikke er tom så -->
+                resultatListe.push(items); // push items, sender ut det som er skrevet
+                items = ''; // tilbakestiller verdien til blank
+
+            }
+
+            view();
+        }
+
+        function deleteThis(indexValue) {
+            resultatListe.splice(indexValue, 1);
+            view();
+        }
+
+        function empty() {
+            resultatListe = [];
+            view();
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #flagg {
+            display: grid;
+            grid-template-columns: repeat(22, 50px);
+            grid-template-rows: repeat(16, 50px);
+        }
+        
+        .red {
+            background-color: #BA0C2F;
+        }
+        
+        .white {
+            background-color: white;
+        }
+        
+        .blue {
+            background-color: #00205B;
+        }
+        
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flagg"></div>
+
+    <script>
+        showFlagg();
+
+        function showFlagg() {
+            document.getElementById('flagg').innerHTML =
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                WhiteBlue() +
+                Blue() +
+                Blue() +
+                WhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue() +
+                RedWhiteBlue();
+        }
+
+        function RedWhiteBlue() {
+            return createRow('red', 'white')
+        }
+
+        function WhiteBlue() {
+            return createRow('white', 'white')
+        }
+
+        function Blue() {
+            return createRow('blue', 'blue')
+        }
+
+        function createRow(css1, css2) {
+            return /*html*/ `
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css2}"></div>
+                <div class="blue"></div>
+                <div class="blue"></div>
+                <div class="${css2}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+                <div class="${css1}"></div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
