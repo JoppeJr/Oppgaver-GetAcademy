@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        //Model
+        let guessNumber;
+        let secretNumber;
+
+
+
+        //view
+        view();
+
+        function view() {
+            const guessText = guessNumber == null ? '' : `Du har tippet ${guessNumber},`;
+
+            // let tippetRiktigEllerFeil;
+            // if (guessNumber == null) {
+            //     tippetRiktigEllerFeil = '';
+            // } else if (guessNumber == secretNumber) {
+            //     tippetRiktigEllerFeil = '<b>Du har Tippet Riktig!</b>';
+            // } else if {
+            //     (guessNumber < secretNumber) {
+            //         tippetRiktigEllerFeil = 'Buhu, du tippet for lavt, prøv igjen!';
+            //     } else {
+            //         tippetRiktigEllerFeil = 'Buhu, du tippet for høyt, prøv igjen!';
+            //     }
+            // }
+            let tippetRiktigEllerFeil =
+                guessNumber == null ? 'Trykk Start Game og Register tippet tall!' :
+                guessNumber == secretNumber ? '<b>Du har Tippet Riktig!</b>' :
+                guessNumber < secretNumber ? 'Buhu, du tippet for lavt, prøv igjen!' :
+                'Buhu, du tippet for høyt, prøv igjen!';
+
+
+            document.getElementById('app').innerHTML = /*html*/ `
+            <h2>Hei her kan du tippe Tall!</h2>
+
+            <h4>Bruk feltet og skriv inn tippet tall, så trykk tipp for å se resultatet.
+                 <button onclick="startGame()">Start Game</button>
+            </h4>
+
+            ${guessText} 
+            ${tippetRiktigEllerFeil}</br> 
+
+            <input type="text" oninput="guessNumber = parseInt(this.value)"><button onclick="guess()">Register</button>
+            `;
+
+
+
+        }
+
+        //controller
+        startGame();
+
+        function startGame() {
+            guessNumber = null;
+            secretNumber = Math.ceil(Math.random() * 100);
+            view();
+        }
+
+        function guess() {
+            view();
+        }
+    </script>
+
+</body>
+
+</html>

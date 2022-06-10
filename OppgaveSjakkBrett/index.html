@@ -46,10 +46,9 @@
         function showSjakk() {
 
             document.getElementById('board').innerHTML =
-                pieceRow('dark', 'light', 'black') +
-                pawnRow('light', 'dark', 'black') +
-                blankRowLight() + // <!-- Henter funksjon BlankRowLight fra funcjon på linje 98 -->
-
+                pieceRow('light', 'dark', 'black') +
+                pawnRow('dark', 'light', 'black') +
+                blankRowLight() +
                 blankRowDark() +
                 blankRowLight() +
                 blankRowDark() +
@@ -59,7 +58,7 @@
 
         function pieceRow(css1, css2, pieceColor) {
             return /*html*/ `
-            |   <div class="${css1}Square ${pieceColor}Piece">♜</div>
+                <div class="${css1}Square ${pieceColor}Piece">♜</div>
                 <div class="${css2}Square ${pieceColor}Piece">♞</div>
                 <div class="${css1}Square ${pieceColor}Piece">♝</div>
                 <div class="${css2}Square ${pieceColor}Piece">♛</div>

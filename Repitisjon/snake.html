@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: black;
+        }
+        
+        #app {
+            background-color: lightslategray;
+            width: 100vmin;
+            height: 100vmin;
+            display: grid;
+            grid-template-rows: repeat(21, 1fr);
+            grid-template-columns: repeat(21, 1fr);
+        }
+        
+        .snake {
+            background-color: blue;
+            border: .25vmin solid black;
+        }
+        
+        .food {
+            background-color: yellow;
+            border: .25vmin solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <div>
+
+    </div>
+    <script>
+        //Model
+
+        //View
+        view();
+
+        function view() {
+            document.getElementById('app').innerHTML = `
+            
+            `;
+        }
+        //Controller
+        let lastRenderTime = 0;
+        const gameBoard = document.getElementById(gameBoard)
+        const SNAKE_SPEED = 1;
+
+        function main(currentTime) {
+            window.requestAnimationFrame(main);
+            const secondsSinceLastRenderTime = (currentTime - lastRenderTime) / 1000;
+            if (secondsSinceLastRenderTime < 1 / SNAKE_SPEED) return;
+
+            console.log('render');
+            lastRenderTime = currentTime;
+
+            update()
+            draw()
+        }
+        window.requestAnimationFrame(main);
+        const snakeBody = [{
+            x: 11,
+            y: 11
+        }]
+
+        function update() {
+            console.log('update snake')
+        }
+
+        function draw(gameBoard) {
+            snakeBody.forEach(segment => {
+                const snakeElement = document.createElement('div')
+                snakeElement.style.gridRowStart = segment.x
+                snakeElement.style.gridColumnStart = segment.y
+                snakeElement.classList.add('snake')
+                gameBoard.appendChild(snakeElement)
+            });
+            console.log('draw snake')
+            drawSnake(gameBoard);
+        }
+    </script>
+
+</body>
+
+</html>
