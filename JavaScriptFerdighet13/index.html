@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //Model
+        let resultat = '';
+        let registrert = '';
+
+
+        //View   14.06. kl 1830 På Torp Konferansesenter, Bottenveien 5, Sandefjord
+
+        view();
+
+        function view() {
+            document.getElementById('app').innerHTML = /*html*/ `
+            <div onclick="add(1)">1</div>
+            <div onclick="add(2)">2</div>
+            <div onclick="add(3)">3</div></br>
+            <div onclick="add(4)">4</div>
+            <div onclick="add(5)">5</div>
+            <div onclick="add(6)">6</div></br>
+            <div onclick="add(7)">7</div>
+            <div onclick="add(8)">8</div>
+            <div onclick="add(9)">9</div></br>
+            <div onclick="add(0)">0</div></br>
+            <div>${registrert}</div></br>
+            <div>${resultat}</div></br>
+            <button onclick="restart()">Start på nytt</button>
+            `;
+
+        }
+        //Controller
+        function add(x) {
+            registrert += x;
+            if (registrert == 394) {
+                resultat = '<b>Du har tastet Riktig</b>';
+            } else {
+                resultat = 'Du har tastet Feil.';
+            }
+            view();
+        }
+
+        // function resultatet() {
+        //     if (registrert == 394) {
+        //         resultat = '<b>Du har tastet Riktig</b>';
+        //     } else {
+        //         resultat = 'Du har tastet Feil.';
+        //     }
+        //     view();
+        // }
+
+
+        function restart() {
+            window.location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
