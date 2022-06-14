@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //hjelpevariabel
+        let appDiv = document.getElementById('app');
+
+        //model
+        let backgroundColor = '';
+        let color = '';
+
+        //view
+        show();
+
+        function show() {
+            let html = '';
+            html += /*html*/ `
+            <select id="backGroundColor" onchange="changeColor()">
+                <option selected value="">Blank</option>
+                <option value="black">Svart</option>
+                <option value="blue">Mørke Blå</option>
+                <option value="lightgray">Lysegrå</option>
+                <option value="lightgreen">Lysegrønn</option>
+                <option value="lightcoral">Lyserød</option>    
+            </select>
+
+            <div style="border: solid black 2px; background-color: ${backgroundColor}; color: ${color}">Her ser man endringen</div>
+            `;
+
+            appDiv.innerHTML = html;
+        }
+
+        //controller
+        function changeColor() {
+
+            backgroundColor = backGroundColor.value;
+
+            if (backgroundColor.value == 'black' || 'blue') {
+                color = 'white';
+                console.log(color + 'første if');
+            } else {
+                color = 'black';
+                console.log(color + 'ANDRE if');
+            }
+
+
+
+
+            show();
+
+        }
+    </script>
+
+</body>
+
+</html>

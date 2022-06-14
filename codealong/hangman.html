@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        //hjelpevariabelen
+        let appDiv = document.getElementById('app');
+        //model
+        let wordArray = ['ost', 'ape', 'bæsj', 'bacon', 'svor', 'ribbe', 'pinnekjøtt', 'zebra'];
+        let random = Math.floor(Math.random() * wordArray.length);
+        let randomWord = wordArray[random];
+        let guessedWord = '';
+
+        //view
+        show();
+
+        function show() {
+            let html = '<h2>HangMan</h2>';
+            html += /*html*/ `
+            <input type="text" oninput="guessedWord = this.value"></br>
+            <button onclick="checkWord()">Sjekk ord</button><button onclick="restart()">Restart</button></br>
+            `;
+            for (let i = 0; i < randomWord.length; i++) {
+                html += ' _';
+            }
+            appDiv.innerHTML = html;
+        }
+
+        //controller
+        function checkWord() {
+            if (guessedWord == randomWord) {
+                alert('Du gjettet riktig')
+            } else {
+                alert('Du gjettet feil')
+            }
+            show();
+        }
+
+        function restart() {
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>

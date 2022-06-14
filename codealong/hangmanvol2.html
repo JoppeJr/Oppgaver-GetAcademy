@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //hjelpevariabel
+        let appDiv = document.getElementById('app');
+        //model
+        let wordArray = ['ost', 'ape', 'bæsj', 'bacon', 'svor', 'ribbe', 'pinnekjøtt', 'zebra', 'scoobydoobiedooo', 'onomatopoetikon', 'motivasjon', 'dreamteamtre'];
+        let random = Math.floor(Math.random() * wordArray.length);
+        let randomWord = wordArray[random];
+        let guesseChar = '';
+        let randomWordArray = [];
+        let wrongGuesses = 0;
+        let wrongGuessesArray = [];
+        let randomWordLengt = randomWord.length;
+
+
+        showChar();
+        show();
+
+
+        function show() {
+            let html = '<h2>HangMan</h2>';
+            html += /*html*/ `
+            Antall gjettinger: ${wrongGuesses}</br>
+            ${randomWordArray.join('')}<hr>
+            <input type="text" oninput="guesseChar = this.value">
+            <button onclick="checkChar()">Sjekk Bokstav</button><hr>
+            feilbokstav: ${wrongGuessesArray.join('')}
+            `;
+
+            appDiv.innerHTML = html;
+        }
+
+        function showChar() {
+            for (let i = 0; i < randomWord.length; i++) {
+                randomWordArray.push(' __ ');
+            }
+
+        }
+
+        //controller
+        function checkChar() {
+            if (guesseChar.length != 1) {
+                alert('For mange bokstaver')
+                return;
+            }
+            if (randomWord.includes(guesseChar)) {
+                for (let i = 0; i < randomWord.length; i++) {
+                    if (randomWord[i] == guesseChar) {
+                        randomWordArray[i] = ' ' + guesseChar + ' ';
+                        randomWordLengt--;
+                        wrongGuesses++;
+                        if (randomWordLengt == 0) {
+                            alert('Du Gjettet RIKTIG!');
+                        }
+                    }
+                }
+            } else {
+                wrongGuesses++;
+                wrongGuessesArray.push(guesseChar);
+            }
+            show();
+        }
+    </script>
+
+</body>
+
+</html>
