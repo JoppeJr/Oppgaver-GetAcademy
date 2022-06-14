@@ -46,12 +46,15 @@
 
             backgroundColor = backGroundColor.value;
 
-            if (backgroundColor.value == 'black' || 'blue') {
+            if (backgroundColor == 'black') {
                 color = 'white';
                 console.log(color + 'første if');
+            } else if (backgroundColor == 'blue') {
+                color = 'white';
+                console.log(color + 'andre if');
             } else {
                 color = 'black';
-                console.log(color + 'ANDRE if');
+                console.log(color + 'tredje if');
             }
 
 
