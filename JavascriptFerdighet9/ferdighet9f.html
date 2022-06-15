@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza bestillig</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //hjelpevar
+        let appDiv = document.getElementById('app');
+        //Model
+        let html = '';
+        let valgt = [];
+        let disabled = "disabled = ''";
+        let bullets = [];
+
+        //View
+        show();
+
+        function show() {
+            html = /*html*/ `
+            <h2>Pizza-bestilling</h2>
+
+            Gjør et valg per linje:</br>
+            Bunn:
+            <input type="radio" name="bunn" onchange="info(this)">tykk
+            <input type="radio" name="bunn" onchange="info(this)">tynn</br>
+            Fyll:
+            <input type="radio" name="fyll" onchange="info(this)">Biff
+            <input type="radio" name="fyll" onchange="info(this)">Kjøttdeig
+            <input type="radio" name="fyll" onchange="info(this)">Peperoni
+            <input type="radio" name="fyll" onchange="info(this)">Kylling</br>
+            Størrelse:
+            <input type="radio" name="size" onchange="info(this)">40 cm
+            <input type="radio" name="size" onchange="info(this)">30 cm
+            <input type="radio" name="size" onchange="info(this)">20 cm</br>
+            Form:
+            <input type="radio" name="form" onchange="info(this)">Rund
+            <input type="radio" name="form" onchange="info(this)">Firkantet</br>
+            <button ${disabled} onclick="alert('Bestilt!')">Bestill</button></br>
+            
+            Du har valgt:</br>
+            ${valgt}</br>
+            <button onclick="reset()">Reset</button></br>
+            <button ${disabled} onclick="shoot()">︻╦̵̵̿╤──</button>${bullets}웃
+
+
+            `;
+            appDiv.innerHTML = html;
+        }
+
+        //Controller
+        //(innhold === "Bunn") && (innhold === "Fyll") && (innhold === "Size")
+        function info(x) {
+            innhold = x.name;
+            valgt.push(innhold);
+
+            if ((valgt.includes("bunn")) && (valgt.includes("fyll")) && (valgt.includes("size")) && (valgt.includes("form"))) {
+                if (valgt.length >= 3) valgt.length = 4;
+                console.log("Fy faen");
+                disabled = '';
+                show();
+            }
+
+
+
+            // if (innhold === 'bunn') && (innhold === 'fyll') && (innhold === 'size') {
+
+            //     }
+            // if (innhold === "Bunn") {
+            //     valgt = innhold;
+            //     console.log(valgt + " 1");
+            // }
+            // if (innhold === "Fyll") {
+            //     valgt = innhold;
+            //     console.log(valgt + " 2");
+            // }
+            // if (innhold === "Size") {
+            //     valgt = innhold;
+            //     console.log(valgt + " 3 ");
+            // }
+
+            console.log(valgt);
+            //show();
+        }
+
+        function shoot() {
+            if (bullets.length == 10) {
+                alert("Du har drept bossen. Gratulerer!!!!!!!!!!!!!!!")
+            }
+            bullets.push('---------------------o');
+            show();
+        }
+
+        function reset() {
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>

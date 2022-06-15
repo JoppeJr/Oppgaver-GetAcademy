@@ -19,12 +19,13 @@
         //model
         let backgroundColor = '';
         let color = '';
+        let html = '';
 
         //view
         show();
 
         function show() {
-            let html = '';
+
             html += /*html*/ `
             <select id="backGroundColor" onchange="changeColor()">
                 <option selected value="">Blank</option>
@@ -46,13 +47,14 @@
 
             backgroundColor = backGroundColor.value;
 
-            if (backgroundColor == 'black') {
+            if (backgroundColor === 'black' || backgroundColor === 'blue') {
                 color = 'white';
                 console.log(color + 'første if');
-            } else if (backgroundColor == 'blue') {
-                color = 'white';
-                console.log(color + 'andre if');
-            } else {
+            }
+            // } else if (backgroundColor == 'blue') {
+            //     color = 'white';
+            //     console.log(color + 'andre if');
+            else {
                 color = 'black';
                 console.log(color + 'tredje if');
             }
