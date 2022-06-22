@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUnit</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+    <script src="testscript.js"></script>
+    <script>
+        QUnit.test("navnet på testen - navn", function(callbackfunksjon) {
+            let actual = StorBokstav('erik');
+            let expected = 'Erik';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - blank", function(callbackfunksjon) {
+            let actual = StorBokstav('');
+            let expected = '';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - null", function(callbackfunksjon) {
+            let actual = StorBokstav('null');
+            let expected = 'null';
+            callbackfunksjon.equal(actual, expected)
+        });
+    </script>
+
+
+</body>
+
+</html>

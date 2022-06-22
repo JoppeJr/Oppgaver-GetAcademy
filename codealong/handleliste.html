@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        let disCount = '';
+        const model = {
+            inputs: {
+                name: '',
+                price: '',
+            },
+
+            totalsum: 0,
+            produkter: [
+
+                {
+                    name: 'produkt 1',
+                    price: 10,
+                    inStock: 152,
+                }, {
+                    name: 'produkt 2',
+                    price: 100,
+                    inStock: 13,
+                }, {
+                    name: 'produkt 3',
+                    price: 50,
+                    inStock: 17,
+                },
+            ]
+        }
+        view();
+
+        function view() {
+            let html = '';
+            html += `<input type="text"> Legg til Produkt<br>
+                    <input type="number"> Legg til Pris<hr>`
+            for (let i = 0; i < model.produkter.length; i++) {
+                html += `<div onclick="leggTilKurv(${i})">produktnavn: ${model.produkter[i].name} <tt> kr ${model.produkter[i].price} </tt> <button ${disCount} onclick="rabatt(this)">Rabatt</button><br>På Lager: ${model.produkter[i].inStock}</div>`
+            }
+            html += `Total sum = ${model.totalsum} kr,-`
+            document.getElementById('app').innerHTML = html;
+        }
+
+        function leggTilKurv(index) {
+            if (model.produkter[index].inStock > 0) {
+                model.totalsum += model.produkter[index].price
+                model.produkter[index].inStock--
+            }
+            view();
+        }
+
+        function rabatt(i) {
+            disCount = 'disabled';
+            model.produkter.price *= 0.90;
+
+            view();
+        }
+    </script>
+</body>
+
+</html>

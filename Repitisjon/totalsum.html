@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: auto;
+            margin-top: 30px;
+        }
+        
+        .budsjet {
+            color: black;
+            float: left;
+            background-color: white;
+            padding: 15px;
+            border-radius: 3%;
+            min-height: 125px;
+        }
+        
+        .handleliste {
+            color: black;
+            float: right;
+            background-color: white;
+            min-height: 125px;
+            padding: 15px;
+            border-radius: 3%;
+        }
+        
+        @media (max-width:700px) {
+            .container {
+                margin-left: auto;
+                margin-right: auto;
+                align-content: center;
+                justify-content: center;
+            }
+            .budsjet {
+                float: none;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: white;
+                padding: 15px;
+                width: 40%;
+                min-width: 40%;
+            }
+            .handleliste {
+                margin-top: 20px;
+                float: none;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: white;
+                min-height: 117px;
+                padding: 15px;
+                width: 40%;
+                min-width: 40%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="budsjet" id="budsjet"></div>
+        <div class="handleliste" id="handleliste"></div>
+    </div>
+    <script>
+        const model = {
+            inputs: {
+                name: '',
+                price: 0,
+            },
+            produkter: [],
+            totalsum: 0,
+        }
+        view();
+
+        function view() {
+            let html = '';
+            html += `<input type="text" oninput="model.inputs.name = this.value"> Legg til Produkt<br>
+                    <input type="number" oninput="model.inputs.price = this.value"> Legg til Pris<br>
+                    <button onclick="addObjectToList()">Registrer</button>      <button onclick="tøm()">Tøm</button><hr>`
+            for (let i = 0; i < model.produkter.length; i++) {
+                html += `<div>produktnavn: ${model.produkter[i].name} <tt> kr ${model.produkter[i].price} </tt></div>`
+            }
+            html += `Sum ${model.totalsum} kr,- <hr>`
+
+            document.getElementById('budsjet').innerHTML = html;
+        }
+
+        function addObjectToList() {
+            //let price = parseInt('price');
+            model.totalsum = 0;
+            model.produkter.push({
+                name: model.inputs.name,
+
+                price: parseInt(model.inputs.price)
+            });
+
+
+            for (let i = 0; i < model.produkter.length; i++) {
+                model.totalsum += parseInt(model.produkter[i].price);
+
+            } // må deklarere I (index) i funksjonen ellers vet den ikke hva indexen er ?? 
+
+
+            view();
+        }
+
+        function tøm() {
+            produkter = [];
+            view();
+        }
+        let resultatListe = [];
+        let items = '';
+        upview();
+
+        function upview() {
+            let html = `<input type="text" oninput="items = this.value"> 
+                        <button onclick="additem()">registrer</button>
+                        <button onclick="empty()">empty</button><hr>`
+
+            for (let i = 0; i < resultatListe.length; i++) {
+                html += `<div>${resultatListe[i]} <button onclick='deleteThis(${i})'>x</button></div><hr>`
+            }
+            document.getElementById('handleliste').innerHTML = html
+        }
+
+
+        function additem() {
+
+
+            if (items != '') { //hvis items ikke er tom så -->
+                resultatListe.push(items); // push items, sender ut det som er skrevet
+                items = ''; // tilbakestiller verdien til blank
+
+            }
+
+            upview();
+        }
+
+        function deleteThis(indexValue) {
+            resultatListe.splice(indexValue, 1);
+            upview();
+        }
+
+        function empty() {
+            resultatListe = [];
+            upview();
+        }
+    </script>
+</body>
+
+</html>
