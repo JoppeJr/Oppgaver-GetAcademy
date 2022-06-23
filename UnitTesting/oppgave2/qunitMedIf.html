@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="lib.js"></script> -->
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        let html = '';
+        let bmioutput = '';
+        let weight = '';
+        let height1 = '';
+        let person = '';
+        let BMI = '';
+
+        //view
+        downview();
+
+        function downview() {
+            html += /*html*/ `
+            <input type="text" onchange="person = this.value" value="" placeholder = "Name"></br>
+            <input type="number" onchange="height1 = this.value" value="" placeholder = "Height in CM"></br>
+            <input type="number" onchange="weight = this.value" value="" placeholder = "Weight in KG"></br>
+            <button onclick="registrer()">Registrer</button>
+            
+            <div>Hello ${person} <br> Your BMI is ${bmioutput}.</div>
+            `;
+
+
+            document.getElementById('app').innerHTML = html;
+        }
+
+        // function checkBMI(input) {
+        //     if (input < 21) {
+        //         bmioutput = 'undervektig'
+        //     } else if (input >= 21 && input < 27) {
+        //         bmioutput = 'normal'
+        //     } else {
+        //         bmioutput = 'overvektig'
+        //     }
+        //     view();
+        //     // return output;
+
+        // }
+
+        // function checkAge(input) {
+        //     if (input < 18) {
+        //         ageoutput = 'Barn'
+        //     } else if (input >= 18 && input < 62) {
+        //         ageoutput = 'Voksen'
+        //     } else {
+        //         ageoutput = 'SteinGammal!'
+        //     }
+        //     view();
+        //     // return output;
+        // }
+
+        function PersonName(input) {
+            person = input.value + '!';
+            downview();
+        }
+
+        // function deletePerson(index) {
+        //     person.splice(index, 1)
+        //     view();
+
+        // function addPerson(index) {
+        //     person.push(index, this.value)
+        //     view();
+        // }
+
+        // function changePerson(index) {
+        //     person[index] = this.value;
+        //     view();
+        // } vekt90 : (høyde1.9* 1.9høyde)
+
+
+
+        function registrer() {
+            height1 = height1 / 100;
+            BMI = weight / (height1 ** 2);
+            if (BMI >= 40) {
+                bmioutput = 'Extremely Obese'
+            } else if (BMI >= 30 && BMI < 40) {
+                bmioutput = 'Obese'
+            } else if (BMI >= 25 && BMI < 30) {
+                bmioutput = 'Overweight'
+            } else if (BMI >= 20 && BMI < 25) {
+                bmioutput = 'Healty'
+            } else if (BMI < 20) {
+                bmioutput = 'Underweight'
+            } else {
+                bmioutput = ''
+            }
+            downview();
+        }
+    </script>
+
+</body>
+
+</html>

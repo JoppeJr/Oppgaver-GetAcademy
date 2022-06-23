@@ -13,8 +13,8 @@
 
     <script>
         //model
-        // let objekt = {name: 'Erik', alder: 26, bosted: 'Sande'};
-        // let objekt2 = {name: 'William', alder: 28, bosted: 'Sandefjord'};
+        // let objekt = {name: 'Erik', alder: 26, bosted: 'Sande'\};
+        // let objekt2 = {name: 'William', alder: 28, bosted: 'Sandefjord'\};
 
         const model = {
             inputs: {
@@ -40,11 +40,11 @@
         //     name: 'Erik',
         //     alder: 26,
         //     bosted: 'Sande'
-        // }, {
+        // \}, {
         //     name: 'William',
         //     alder: 28,
         //     bosted: 'Sandefjord'
-        // }, ]
+        // \}, ]
 
         //view
         view();
@@ -52,17 +52,17 @@
         function view() {
             let html = '';
             // html +=/*html*/`
-            // navn: ${objekt.name}<br>
-            // alder: ${objekt.alder}<br>
-            // bosted: ${objekt.bosted}<br>
-            // navn: ${objekt2.name}<br>
-            // alder: ${objekt2.alder}<br>
-            // bosted: ${objekt2.bosted}`
+            // navn: \${objekt.name\}<br>
+            // alder: \${objekt.alder\}<br>
+            // bosted: \${objekt.bosted\}<br>
+            // navn: \${objekt2.name\}<br>
+            // alder: \${objekt2.alder\}<br>
+            // bosted: \${objekt2.bosted\}`
             for (let i = 0; i < model.persons.length; i++) {
                 html += `
-                navn: ${model.persons[i].name}<br>
-                alder: ${model.persons[i].alder}<br>
-                bosted: ${model.persons[i].bosted}<br>
+                navn: \${model.persons[i].name\}<br>
+                alder: \${model.persons[i].alder\}<br>
+                bosted: \${model.persons[i].bosted\}<br>
                 <hr>
                 `
             }
@@ -73,7 +73,7 @@
                     bosted: <br>
                     <input type="text" oninput="model.inputs.bosted = this.value"><br>
                     <button onclick="addPersonToList()">Legg Til Person</button>`
-                // persons.map(p => html += `${p.name}`)
+                // persons.map(p => html += `\${p.name\}`)
 
             // let test = persons.find(p => p.name == 'Erik')
             // console.log(test)
@@ -84,6 +84,12 @@
         //controller
         function addPersonToList() {
             // model.persons.push(model.inputs)
+            // let isOnTheList = false;
+
+            // for(let i = 0; i < model.persons.length; i++){
+            //     if(model.persons[i].name)
+            // \}
+
             model.persons.push({
                     name: model.inputs.name,
                     alder: model.inputs.alder,
@@ -92,21 +98,21 @@
                 // for (let i = 0; i < model.persons.length; i++) { funker ikke ----- 
                 //     if (model.persons[i].name != model.inputs.name) {
                 //         console.log('finnes fra før')
-                //     } else {
+                //     \} else {
                 //         model.persons.push({
                 //             name: model.inputs.name,
                 //             alder: model.inputs.alder,
                 //             bosted: model.inputs.bosted
-                //         })
-                //     }
-                // }
+                //         \})
+                //     \}
+                // \}
 
 
             // model.persons.push({
             //     name: model.inputs.name,
             //     alder: model.inputs.alder,
             //     bosted: model.inputs.bosted
-            // })
+            // \})
             view()
         }
     </script>

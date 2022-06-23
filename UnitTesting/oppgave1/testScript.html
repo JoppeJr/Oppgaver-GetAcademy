@@ -27,7 +27,12 @@
         });
         QUnit.test("navnet på testen - null", function(callbackfunksjon) {
             let actual = StorBokstav('null');
-            let expected = 'null';
+            let expected = 'Null';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - space", function(callbackfunksjon) {
+            let actual = StorBokstav(' erik ');
+            let expected = 'Erik';
             callbackfunksjon.equal(actual, expected)
         });
     </script>

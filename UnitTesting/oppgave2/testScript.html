@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUnit</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+    <script src="lib.js"></script>
+
+    <script>
+        let bmioutput = '';
+        let ageoutput = '';
+        let person = [];
+        let namevalue = '';
+        QUnit.test("navnet på testen - sjekk bmi normal", function(callbackfunksjon) {
+            checkBMI('21');
+            let actual = bmioutput;
+            let expected = 'normal';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - sjekk bmi under", function(callbackfunksjon) {
+            checkBMI('20');
+            let actual = bmioutput;
+            let expected = 'undervektig';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - sjekk bmi overvekt", function(callbackfunksjon) {
+            checkBMI('28');
+            let actual = bmioutput;
+            let expected = 'overvektig';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - sjekk alder Voksen", function(callbackfunksjon) {
+            checkAge('28');
+            let actual = ageoutput;
+            let expected = 'Voksen';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - sjekk alder barn", function(callbackfunksjon) {
+            checkAge('14');
+            let actual = ageoutput;
+            let expected = 'Barn';
+            callbackfunksjon.equal(actual, expected)
+        });
+        QUnit.test("navnet på testen - sjekk alder steingammel", function(callbackfunksjon) {
+            checkAge('99');
+            let actual = ageoutput;
+            let expected = 'SteinGammal!';
+            callbackfunksjon.equal(actual, expected)
+        });
+
+        QUnit.test("navnet på testen -fjern person ", function(callbackfunksjon) {
+            person = ['Odd Eirik', 'Erik', 'Therese']
+            deletePerson(2);
+            let actual = person;
+            let expected = ['Odd Eirik', 'Erik'];
+            callbackfunksjon.deepEqual(actual, expected)
+        });
+        QUnit.test("navnet på testen +add person ", function(callbackfunksjon) {
+            person = []
+            namevalue = 'Terje'
+            addPerson();
+            let actual = person;
+            let expected = ['Terje'];
+            callbackfunksjon.deepEqual(actual, expected)
+        });
+        QUnit.test("navnet på testen endre person ", function(callbackfunksjon) {
+            person = ['Odd Eirik', 'Therese']
+            namevalue = 'Terje'
+            changePerson(1);
+            let actual = person;
+            let expected = ['Odd Eirik', 'Terje'];
+            callbackfunksjon.deepEqual(actual, expected)
+        });
+    </script>
+
+
+</body>
+
+</html>

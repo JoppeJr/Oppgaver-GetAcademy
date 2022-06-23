@@ -8,12 +8,12 @@
     <title>Document</title>
     <style>
         body {
+            color: black;
             background-color: black;
         }
         
         .container {
             max-width: 100%;
-            margin: auto;
             margin-top: 30px;
         }
         
@@ -24,14 +24,29 @@
             padding: 15px;
             border-radius: 3%;
             min-height: 125px;
+            width: 25%;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .handleliste {
             color: black;
+            float: none;
+            background-color: white;
+            min-height: 125px;
+            padding: 15px;
+            border-radius: 3%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+        
+        .bmiCalc {
             float: right;
             background-color: white;
             min-height: 125px;
             padding: 15px;
+            width: 25%;
             border-radius: 3%;
         }
         
@@ -62,6 +77,17 @@
                 width: 40%;
                 min-width: 40%;
             }
+            .bmiCalc {
+                margin-top: 20px;
+                float: none;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: white;
+                min-height: 117px;
+                padding: 15px;
+                width: 40%;
+                min-width: 40%;
+            }
         }
     </style>
 
@@ -70,9 +96,12 @@
 <body>
     <div class="container">
         <div class="budsjet" id="budsjet"></div>
+        <div class="bmiCalc" id="bmiCalc"></div>
         <div class="handleliste" id="handleliste"></div>
+
     </div>
     <script>
+        //Start på handleliste
         const model = {
             inputs: {
                 name: '',
@@ -116,9 +145,14 @@
         }
 
         function tøm() {
-            produkter = [];
+            model.produkter = [];
+            model.totalsum = 0;
             view();
         }
+        // slutt på handleliste
+        //
+        //
+        // start to-do list
         let resultatListe = [];
         let items = '';
         upview();
@@ -155,6 +189,58 @@
         function empty() {
             resultatListe = [];
             upview();
+        }
+        //Slutt på to-do list
+        //
+        //
+        //start på BMI kalulator
+        let html = '';
+        let bmioutput = '';
+        let weight = '';
+        let height1 = '';
+        let person = '';
+        let BMI = '';
+
+        //view
+        downview();
+
+        function downview() {
+            html = /*html*/ `
+            <input type="text" onchange="person = this.value" value="" placeholder = "Name"></br>
+            <input type="number" onchange="height1 = this.value" value="" placeholder = "Height in CM"></br>
+            <input type="number" onchange="weight = this.value" value="" placeholder = "Weight in KG"></br>
+            <button onclick="registrer()">Registrer</button>`;
+
+
+            html += `<div>Hello ${person} <br> Your BMI is ${bmioutput}</div>`;
+
+
+            document.getElementById('bmiCalc').innerHTML = html;
+        }
+
+        function PersonName(input) {
+            person = input.value;
+            person = person + '!';
+            downview();
+        }
+
+        function registrer() {
+            height1 = height1 / 100;
+            BMI = weight / (height1 ** 2);
+            if (BMI >= 40) {
+                bmioutput = 'Extremely Obese - Ta deg ein bolle! Du er kjørt uansett...'
+            } else if (BMI >= 30 && BMI < 40) {
+                bmioutput = 'Obese - Det er lov å trene! Burde kanskje vurdere det?'
+            } else if (BMI >= 25 && BMI < 30) {
+                bmioutput = 'Overweight - Godt med litt padding, eller Love handles!'
+            } else if (BMI >= 20 && BMI < 25) {
+                bmioutput = 'Healty - Keep it up!'
+            } else if (BMI < 20) {
+                bmioutput = 'Underweight - Det er ikke fint å se ut som et lik. Ta deg litt mat så trener du!'
+            } else {
+                bmioutput = ''
+            }
+            downview();
         }
     </script>
 </body>
