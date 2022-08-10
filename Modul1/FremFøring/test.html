@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans+Narrow" />
+    <title>Document</title>
+    <style>
+        body {
+            color: black;
+            background-color: black;
+            zoom: 125%;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+        
+        .budsjet {
+            color: white;
+            float: left;
+            background-color: #3C3C3C;
+            padding: 15px;
+            border-radius: 3%;
+            min-height: 125px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            min-width: 310px;
+            text-align: center;
+            font-family: "PT Sans Narrow";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="budsjet" id="budsjet"></div>
+    </div>
+    <script>
+        let totalbudsjet = 0;
+        let restbudsjet = 0;
+        const model = {
+            inputs: {
+                name: '',
+                price: 0,
+            },
+            produkter: [],
+            totalsum: 0,
+        }
+        view();
+
+        function view() {
+            let html = '';
+            html += `Legg til Total budsjett<br> 
+                    <input type="number" oninput="totalbudsjet = this.value" placeholder="Skriv inn totalt inntekt"></br><button onclick="addBudsjet()">Legg til</button></br> 
+                    Legg til Produkt<br>
+                    <input type="text" oninput="model.inputs.name = this.value"></br>
+                    Legg til Pris<br> 
+                    <input type="number" oninput="model.inputs.price = this.value"></br> 
+                    <button onclick="addObjectToList()">Registrer</button>`
+            for (let i = 0; i < model.produkter.length; i++) {
+                html += `<div>produktnavn: ${model.produkter[i].name}  <tt> kr ${model.produkter[i].price}  <button onclick='deleteThis(${i})'>x</button> </tt></div>`
+            }
+            html += `</br>Sum ${model.totalsum} kr,- <hr>
+            Sum igjen: ${restbudsjet}kr,-</br>
+            Total budsjett: ${totalbudsjet} kr,-</br>
+            <button onclick="tøm()">Reset</button><hr>`
+            document.getElementById('budsjet').innerHTML = html;
+        }
+
+        function addObjectToList() {
+            //let price = parseInt('price');
+            model.totalsum = 0;
+            if (model.inputs.name != '') {
+                model.produkter.push({
+                    name: model.inputs.name,
+                    price: parseInt(model.inputs.price)
+                });
+                model.inputs.name = '';
+                model.inputs.price = 0;
+            }
+            for (let i = 0; i < model.produkter.length; i++) {
+                model.totalsum += parseInt(model.produkter[i].price);
+            }
+            restbudsjet = totalbudsjet - model.totalsum;
+
+            view();
+            localStorage.setItem("restbudsjet", restbudsjet);
+        }
+        // bytte farge når du går i minus
+        // plusse på budsjet.
+        function addBudsjet() {
+            totalbudsjet.value;
+            restbudsjet = totalbudsjet;
+            view();
+            localStorage.setItem("totalbudsjet", totalbudsjet);
+        }
+
+        function deleteThis(indexValue) {
+            model.totalsum -= parseInt(model.produkter[indexValue].price);
+            restbudsjet = parseInt(restbudsjet) + parseInt(model.produkter[indexValue].price);
+            model.produkter.splice(indexValue, 1);
+            view();
+            //addObjectToList();
+        }
+
+        function tøm() {
+            model.produkter = [];
+            model.totalsum = 0;
+            totalbudsjet = 0;
+            restbudsjet = 0;
+            localStorage.setItem("restbudsjet", restbudsjet);
+            localStorage.setItem("totalbudsjet", totalbudsjet);
+            view();
+        }
+        window.onload = (event) => {
+            restbudsjet = localStorage.getItem(restbudsjet) === null ? 0 : parseInt(localStorage.getItem("restbudsjet"));
+            addObjectToList();
+            totalbudsjet = localStorage.getItem(totalbudsjet) === null ? 0 : parseInt(localStorage.getItem("totalbudsjet"));
+            addBudsjet();
+        };
+    </script>
+</body>
+
+</html>

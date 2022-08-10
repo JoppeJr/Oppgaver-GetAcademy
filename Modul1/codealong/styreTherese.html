@@ -7,14 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box {
-            border: 2px solid black;
-            height: 100px;
-            width: 100px;
-            float: left;
+        div {
+            user-select: none;
         }
         
-        .firstRute {
+        .box {
+            background-color: lightgray;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 2px;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .first {
             clear: left;
         }
         
@@ -43,11 +52,13 @@
             let html = '';
             for (let i = 0; i < 9; i++) {
                 //modulus
-                let first = i % 3 == 0 ? 'firstRute' : '';
+                let first = i % 3 == 0 ? 'first' : '';
                 html += /*html*/ `
-                    <div onclcik="setX(${i})"class="box color${ruter[i]} ${first}">${ruter[i]}</div>
+                    <div onclick="setX(${i})" class="box color${ruter[i]} ${first}">${ruter[i]}</div>
+                    
                 `;
             }
+            html += `<button onclick="restart()">Start på Nytt</button>`;
 
             document.getElementById('app').innerHTML = html;
         }
@@ -66,8 +77,21 @@
             if (blankIndexes.length === 0) return;
             let random = Math.floor(Math.random() * blankIndexes.length);
             let blankIndex = blankIndexes[random];
-            board[blankIndex] = 'o';
+            ruter[blankIndex] = 'o';
             view();
+        }
+
+        function checkWinning(i) {
+            if (ruter[i] == 'x', 'x', 'x') {
+                alert('Gratulerer! Du har vunnet')
+            } else {
+                alert('Du har tapt')
+            }
+            view();
+        }
+
+        function restart() {
+            window.location.reload();
         }
     </script>
 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        button {
+            border-radius: 5px;
+            background-color: rgb(37, 44, 45);
+            color: rgb(207, 208, 209);
+            border-color: rgb(37, 44, 45);
+        }
+        
+        .imgChange {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .imgVåken {
+            background-image: url(img/våken.jpg);
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .imgIkkeVåken {
+            width: 187px;
+            height: 333px;
+            background-repeat: no-repeat;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- -hei! hva skal vi lage ? noe enkelt og greit som vi bruker 1.5 time på. -->
+    <div id="app" class="imgChange"></div>
+
+    <script>
+        // HJELPEVARIABLER
+        appDiv = document.getElementById("app");
+
+        //model
+        let Michael = '';
+        let våken = '<img src="img/vaken.jpg">';
+        let IkkeVåken = '<img src="img/ikkevaken.jpg">';
+
+        //view
+        view();
+
+        function view() {
+            let html = '';
+
+            html += /*html*/ `
+                <button onclick="micOppeEllerIkke(1)">Si at Michael er våken!</button>
+                <button onclick="micOppeEllerIkke(0)">Si at Michael ikke er våken!</button>
+                <button onclick="reset()">Ny dag nye muligheter</button>
+                <div style="width: 375px; height: 667px;">${Michael}</div>
+            `;
+
+
+
+            appDiv.innerHTML = html;
+        }
+
+        //controller
+        function micOppeEllerIkke(n) {
+
+            if (n == 1 ? Michael = våken : Michael = IkkeVåken);
+            //if (Michael == 'Våken' ? alert("Michael er våken") : alert("Michael er ikke våken"));
+            view();
+
+        }
+
+        function reset() {
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>
