@@ -10,26 +10,46 @@ const model = {
             addQuestion: {
                 questionType: 1,
                 question: '',
+                isAnswerEnabled: false, 
                 answer: '',
                 addAnswer: '',
+                answer2: '',
+                answer3: '',
+                answer4: '',
+                answer5: '',
                 /* Add awnser input*/
+                addToPole: '',
                 startTime: '',
                 endTime: '',
                 generateLink: '',
                 /* Start Poll*/
             },
         },
+        pollPage: {
+            questionAnswer: {
+            answer: true,
+            answer2: false,
+        },
+
+        },
 
 
     },
     //3: felles data
-    pollQuestion: [{
+    pollQuestion: [
+        {
             id: 1,
             question: 'Hvilken dag passer best?',
             answer: 'Mandag',
-            answer: 'Tirsdag',
+            answer2: 'Tirsdag',
         },
-        { id: 2, question: '', answer: '', },
-        { id: 3, question: '', answer: '', },
+        { id: 2, 
+            question: '', 
+            answer: ['svar',], 
+        },
+        { id: 3, 
+            question: '', 
+            answer: '', 
+        },
     ]
 }

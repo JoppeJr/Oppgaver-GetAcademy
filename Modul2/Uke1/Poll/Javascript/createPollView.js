@@ -5,6 +5,7 @@ function createPollView() {
     <button>X</button> Employee type awnser Question</br>
     <button>X</button> Employee type individual awnser Question</br>
     <input type="text">
+    <input type=>
 
     `;
 
