@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/model.js"></script>
+    <script src="js/loginView.js"></script>
+    <script src="js/loginController.js"></script>
+    <script src="js/budsjettView.js"></script>
+    <script src="js/budsjettController.js"></script>
+    <script src="js/createNewView.js"></script>
+    <script src="js/createNewController.js"></script>
+
+    <!--   <style>
+        body {
+            color: black;
+            background-color: black;
+            zoom: 125%;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+        
+        .budsjett {
+            color: white;
+            float: left;
+            background-color: #3C3C3C;
+            padding: 15px;
+            border-radius: 3%;
+            min-height: 125px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            min-width: 310px;
+            text-align: center;
+            font-family: "PT Sans Narrow";
+        }
+        /* .minusbudsjett {
+            color: red;
+        } */
+    </style> -->
+
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+
+
+    <script>
+        //model
+
+        //view
+        updateView();
+
+        function updateView() {
+            if (model.app.currentPage === 'login')
+                updateViewLogin();
+
+            if (model.app.currentPage === 'create')
+                updateViewCreate();
+
+            if (model.app.currentPage === 'budsjett')
+                updateViewBudsjett();
+
+
+
+        }
+
+
+
+        // bytte farge når du går i minus
+        // plusse på budsjett.
+        //
+    </script>
+</body>
+
+</html>
