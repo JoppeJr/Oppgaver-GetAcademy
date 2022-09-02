@@ -13,6 +13,7 @@
     <script src="js/budsjettController.js"></script>
     <script src="js/createNewView.js"></script>
     <script src="js/createNewController.js"></script>
+    <script src="js/menyView.js"></script>
 
     <!--   <style>
         body {
@@ -63,14 +64,16 @@
         updateView();
 
         function updateView() {
-            if (model.app.currentPage === 'login')
+            if (model.currentPage === 'login')
                 updateViewLogin();
 
-            if (model.app.currentPage === 'create')
+            if (model.currentPage === 'create')
                 updateViewCreate();
 
-            if (model.app.currentPage === 'budsjett')
+            if (model.currentPage === 'budsjett')
                 updateViewBudsjett();
+            if (model.currentPage === 'menu')
+                updateViewMenu();
 
 
 

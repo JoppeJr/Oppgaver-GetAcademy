@@ -1,6 +1,8 @@
 function updateViewBudsjett() {
-    document.getElementById('app').innerHTML = /*html*/ `
-            Logget in som: ${model.app.currentUser}<button onclick="logut()">Log ut</button><br>
+    html = '';
+    html = /*html*/ `
+            Logget in som: ${model.currentUser}<button onclick="logut()">Log ut</button><br>
+            <button onclick="updateViewMenu()">Meny</button><br>
             Legg til Total budsjett<br> 
             <input 
             type="number" 
@@ -21,20 +23,49 @@ function updateViewBudsjett() {
             onclick="addObjectToList()"
             >Registrer</button>
             <button onclick="tøm()">Tøm</button><hr>
-           
+            
+           ${createBudsjett()}
             `;
+    console.log(model.brukere[model.userIndex].produkter)
+    document.getElementById('app').innerHTML = html;
 }
 
-// function createBudsjett() {
-//     if (model.app.currentUser = model.brukere[i].brukernavn) {
-//         for (let i = 0; i < model.brukere.produkter[i].length; i++) {
-//             html += `<div><button onclick='deleteThis(${i})'>x</button> ${model.produkter[i].name}  <tt>
-//              kr ${model.produkter[i].price} </tt></div>`
-//         }
-//         html += `</br>Sum: <tt>${model.totalsum} </tt>kr,- <hr>
-//     Rest budsjett: <tt>${restbudsjett} </tt>kr,-</br>
-//     Total budsjett: <tt>${totalbudsjett} </tt>kr,-`;
-//         return html;
+function createBudsjett() {
+    //if (model.currentUser = model.brukere[model.userIndex].brukernavn) {
+    let User = model.brukere[model.userIndex];
+    if (model.brukere[model.userIndex].restbudsjett <= -1) {
+        belowBudsjett = 'red';
+    } else {
+        belowBudsjett = 'black'
+    }
+    console.log(User.produkter.length);
+    for (let i = 0; i < User.produkter.length; i++) {
+        html += `<div><button onclick='deleteThis(${i})'>x</button> ${User.produkter[i].name}  <tt>
+                 kr ${User.produkter[i].price} </tt> â <tt>${User.produkter[i].quantity}</tt></div>`
+        console.log(User.produkter.name)
+
+    }
+
+    html += `
+    
+    
+    </br>Sum: <tt>${model.brukere[model.userIndex].totalsum} </tt>kr,- <hr>
+    Rest budsjett: <tt style="color:${belowBudsjett};">${model.brukere[model.userIndex].restbudsjett} </tt>kr,-</br>
+    Total budsjett: <tt>${model.brukere[model.userIndex].totalbudsjett} </tt>kr,-`;
+    return html;
+    //}
+}
+
+// function createProducts() {
+//     let User = model.brukere[model.userIndex];
+//     //if (User.produkter == []) {
+
+//     //} else {
+//     for (let i = 0; i < User.produkter.lenght; i++) {
+//         html += `<div><button onclick='deleteThis(${i})'>x</button> ${User.produkter[i].name}  <tt>
+//              kr ${User.produkter.price} </tt></div>`
+//         console.log(User.produkter.name)
+
 //     }
+//     //}${createProducts()}
 // }
-// ${createBudsjett()}

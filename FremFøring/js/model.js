@@ -1,9 +1,10 @@
 const model = {
     //app
-    app: {
-        currentPage: 'login', // login, create
-        currentUser: '',
-    },
+
+    currentPage: 'login', // login, create
+    currentUser: '',
+    userIndex: null,
+
 
 
     //inputs
